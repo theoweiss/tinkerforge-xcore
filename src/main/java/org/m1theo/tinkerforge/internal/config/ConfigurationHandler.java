@@ -42,6 +42,8 @@ import org.m1theo.tinkerforge.emf.internal.model.DualButtonLEDConfiguration;
 import org.m1theo.tinkerforge.emf.internal.model.DualButtonLedSubIds;
 import org.m1theo.tinkerforge.emf.internal.model.DualRelaySubIds;
 import org.m1theo.tinkerforge.emf.internal.model.Ecosystem;
+import org.m1theo.tinkerforge.emf.internal.model.HumidityV2Configuration;
+import org.m1theo.tinkerforge.emf.internal.model.HumidityV2SubIds;
 import org.m1theo.tinkerforge.emf.internal.model.IO16SubIds;
 import org.m1theo.tinkerforge.emf.internal.model.IO4SubIds;
 import org.m1theo.tinkerforge.emf.internal.model.IndustrialDigitalInSubIDs;
@@ -75,6 +77,7 @@ import org.m1theo.tinkerforge.emf.internal.model.TFAnalogInConfiguration;
 import org.m1theo.tinkerforge.emf.internal.model.TFAnalogInV2Configuration;
 import org.m1theo.tinkerforge.emf.internal.model.TFBaseConfiguration;
 import org.m1theo.tinkerforge.emf.internal.model.TFBrickDCConfiguration;
+import org.m1theo.tinkerforge.emf.internal.model.TFConfig;
 import org.m1theo.tinkerforge.emf.internal.model.TFDistanceUSBrickletConfiguration;
 import org.m1theo.tinkerforge.emf.internal.model.TFIOActorConfiguration;
 import org.m1theo.tinkerforge.emf.internal.model.TFIOSensorConfiguration;
@@ -192,7 +195,8 @@ public class ConfigurationHandler {
     bricklet_co2,
     bricklet_analog_out_v2,
     bricklet_humidityV2,
-    humidityV2_humidity
+    humidityV2_humidity,
+    humidityV2_temperature
   }
 
   public ConfigurationHandler() {
@@ -311,24 +315,33 @@ public class ConfigurationHandler {
       ohtfDevice.setTfConfig(servoConfiguration);
       fillupConfig(ohtfDevice, deviceConfig);
     } else if (deviceType.equals(TypeKey.bricklet_distance_ir.name())
-        || deviceType.equals(TypeKey.bricklet_humidity.name()) || deviceType.equals(TypeKey.bricklet_barometer.name())
+        || deviceType.equals(TypeKey.bricklet_humidity.name())
+        || deviceType.equals(TypeKey.bricklet_barometer.name())
         || deviceType.equals(TypeKey.bricklet_ambient_light.name())
         || deviceType.equals(TypeKey.ambient_temperature.name())
         || deviceType.equals(TypeKey.bricklet_soundintensity.name())
         || deviceType.equals(TypeKey.voltageCurrent_voltage.name())
         || deviceType.equals(TypeKey.voltageCurrent_current.name())
-        || deviceType.equals(TypeKey.voltageCurrent_power.name()) || deviceType.equals(TypeKey.bricklet_joystick.name())
+        || deviceType.equals(TypeKey.voltageCurrent_power.name())
+        || deviceType.equals(TypeKey.bricklet_joystick.name())
         || deviceType.equals(TypeKey.bricklet_halleffect.name())
-        || deviceType.equals(TypeKey.bricklet_linear_poti.name()) || deviceType.equals(TypeKey.ptc_resistance.name())
-        || deviceType.equals(TypeKey.ptc_temperature.name()) || deviceType.equals(TypeKey.industrial020ma_sensor.name())
-        || deviceType.equals(TypeKey.rotary_encoder.name()) || deviceType.equals(TypeKey.bricklet_dustdetector.name())
-        || deviceType.equals(TypeKey.color_color.name()) || deviceType.equals(TypeKey.color_temperature.name())
+        || deviceType.equals(TypeKey.bricklet_linear_poti.name())
+        || deviceType.equals(TypeKey.ptc_resistance.name())
+        || deviceType.equals(TypeKey.ptc_temperature.name())
+        || deviceType.equals(TypeKey.industrial020ma_sensor.name())
+        || deviceType.equals(TypeKey.rotary_encoder.name())
+        || deviceType.equals(TypeKey.bricklet_dustdetector.name())
+        || deviceType.equals(TypeKey.color_color.name())
+        || deviceType.equals(TypeKey.color_temperature.name())
         || deviceType.equals(TypeKey.color_illuminance.name())
         || deviceType.equals(TypeKey.industrial_dual_analogin_channel.name())
         || deviceType.equals(TypeKey.accelerometer_direction.name())
         || deviceType.equals(TypeKey.laser_range_finder_distance.name())
         || deviceType.equals(TypeKey.laser_range_finder_velocity.name())
-        || deviceType.equals(TypeKey.bricklet_uvlight.name()) || deviceType.equals(TypeKey.bricklet_co2.name())) {
+        || deviceType.equals(TypeKey.bricklet_uvlight.name()) 
+        || deviceType.equals(TypeKey.bricklet_co2.name())
+        || deviceType.equals(TypeKey.humidityV2_humidity.name())
+        || deviceType.equals(TypeKey.humidityV2_temperature.name())) {
       logger.debug("setting base config");
       TFBaseConfiguration tfBaseConfiguration = modelFactory.createTFBaseConfiguration();
       if (deviceType.equals(TypeKey.bricklet_barometer.name())) {
@@ -458,7 +471,6 @@ public class ConfigurationHandler {
       ohtfDevice.getSubDeviceIds().addAll(Arrays.asList(NoSubIds.values()));
       ohtfDevice.setTfConfig(configuration);
       fillupConfig(ohtfDevice, deviceConfig);
-
     } else if (deviceType.equals(TypeKey.remote_switch_a.name())) {
       logger.debug("setting RemoteSwitchAConfiguration device_type {}", deviceType);
       RemoteSwitchAConfiguration configuration = modelFactory.createRemoteSwitchAConfiguration();
@@ -710,6 +722,12 @@ public class ConfigurationHandler {
       TFThermocoupleConfiguration configuration = modelFactory.createTFThermocoupleConfiguration();
       OHTFDevice<TFThermocoupleConfiguration, NoSubIds> ohtfDevice = modelFactory.createOHTFDevice();
       ohtfDevice.getSubDeviceIds().addAll(Arrays.asList(NoSubIds.values()));
+      ohtfDevice.setTfConfig(configuration);
+      fillupConfig(ohtfDevice, deviceConfig);
+    } else if (deviceType.equals(TypeKey.bricklet_humidityV2.name())) {
+      HumidityV2Configuration configuration = modelFactory.createHumidityV2Configuration();
+      OHTFDevice<HumidityV2Configuration, HumidityV2SubIds> ohtfDevice = modelFactory.createOHTFDevice();
+      ohtfDevice.getSubDeviceIds().addAll(Arrays.asList(HumidityV2SubIds.values()));
       ohtfDevice.setTfConfig(configuration);
       fillupConfig(ohtfDevice, deviceConfig);
     } else {

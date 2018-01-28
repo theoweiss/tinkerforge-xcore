@@ -57,56 +57,56 @@ public interface HumidityV2Configuration extends TFConfig {
    */
 	void setHeaterConfiguration(int value);
 
-	/**
+  /**
    * Returns the value of the '<em><b>Moving Average Length Humidity</b></em>' attribute.
    * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Moving Average Length Humidity</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Moving Average Length Humidity</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
    * @return the value of the '<em>Moving Average Length Humidity</em>' attribute.
    * @see #setMovingAverageLengthHumidity(int)
    * @see org.m1theo.tinkerforge.emf.internal.model.ModelPackage#getHumidityV2Configuration_MovingAverageLengthHumidity()
    * @model unique="false"
    * @generated
    */
-	int getMovingAverageLengthHumidity();
+  int getMovingAverageLengthHumidity();
 
-	/**
+  /**
    * Sets the value of the '{@link org.m1theo.tinkerforge.emf.internal.model.HumidityV2Configuration#getMovingAverageLengthHumidity <em>Moving Average Length Humidity</em>}' attribute.
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @param value the new value of the '<em>Moving Average Length Humidity</em>' attribute.
    * @see #getMovingAverageLengthHumidity()
    * @generated
    */
-	void setMovingAverageLengthHumidity(int value);
+  void setMovingAverageLengthHumidity(int value);
 
-	/**
+  /**
    * Returns the value of the '<em><b>Moving Average Length Temperature</b></em>' attribute.
    * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Moving Average Length Temperature</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Moving Average Length Temperature</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
    * @return the value of the '<em>Moving Average Length Temperature</em>' attribute.
    * @see #setMovingAverageLengthTemperature(int)
    * @see org.m1theo.tinkerforge.emf.internal.model.ModelPackage#getHumidityV2Configuration_MovingAverageLengthTemperature()
    * @model unique="false"
    * @generated
    */
-	int getMovingAverageLengthTemperature();
+  int getMovingAverageLengthTemperature();
 
-	/**
+  /**
    * Sets the value of the '{@link org.m1theo.tinkerforge.emf.internal.model.HumidityV2Configuration#getMovingAverageLengthTemperature <em>Moving Average Length Temperature</em>}' attribute.
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @param value the new value of the '<em>Moving Average Length Temperature</em>' attribute.
    * @see #getMovingAverageLengthTemperature()
    * @generated
    */
-	void setMovingAverageLengthTemperature(int value);
+  void setMovingAverageLengthTemperature(int value);
 
 } // HumidityV2Configuration

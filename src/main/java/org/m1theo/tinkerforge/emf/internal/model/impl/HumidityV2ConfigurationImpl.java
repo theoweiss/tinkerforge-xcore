@@ -60,44 +60,44 @@ public class HumidityV2ConfigurationImpl extends MinimalEObjectImpl.Container im
 				/**
    * The default value of the '{@link #getMovingAverageLengthHumidity() <em>Moving Average Length Humidity</em>}' attribute.
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @see #getMovingAverageLengthHumidity()
    * @generated
    * @ordered
    */
-    protected static final int MOVING_AVERAGE_LENGTH_HUMIDITY_EDEFAULT = 0;
+  protected static final int MOVING_AVERAGE_LENGTH_HUMIDITY_EDEFAULT = 0;
 
-    /**
+  /**
    * The cached value of the '{@link #getMovingAverageLengthHumidity() <em>Moving Average Length Humidity</em>}' attribute.
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @see #getMovingAverageLengthHumidity()
    * @generated
    * @ordered
    */
-    protected int movingAverageLengthHumidity = MOVING_AVERAGE_LENGTH_HUMIDITY_EDEFAULT;
+  protected int movingAverageLengthHumidity = MOVING_AVERAGE_LENGTH_HUMIDITY_EDEFAULT;
 
-    /**
+  /**
    * The default value of the '{@link #getMovingAverageLengthTemperature() <em>Moving Average Length Temperature</em>}' attribute.
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @see #getMovingAverageLengthTemperature()
    * @generated
    * @ordered
    */
-    protected static final int MOVING_AVERAGE_LENGTH_TEMPERATURE_EDEFAULT = 0;
+  protected static final int MOVING_AVERAGE_LENGTH_TEMPERATURE_EDEFAULT = 0;
 
-    /**
+  /**
    * The cached value of the '{@link #getMovingAverageLengthTemperature() <em>Moving Average Length Temperature</em>}' attribute.
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @see #getMovingAverageLengthTemperature()
    * @generated
    * @ordered
    */
-    protected int movingAverageLengthTemperature = MOVING_AVERAGE_LENGTH_TEMPERATURE_EDEFAULT;
+  protected int movingAverageLengthTemperature = MOVING_AVERAGE_LENGTH_TEMPERATURE_EDEFAULT;
 
-    /**
+        /**
    * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
    * @generated
@@ -139,47 +139,47 @@ public class HumidityV2ConfigurationImpl extends MinimalEObjectImpl.Container im
 
 				/**
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-    public int getMovingAverageLengthHumidity() {
+  public int getMovingAverageLengthHumidity() {
     return movingAverageLengthHumidity;
   }
 
-    /**
+        /**
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-    public void setMovingAverageLengthHumidity(int newMovingAverageLengthHumidity) {
+  public void setMovingAverageLengthHumidity(int newMovingAverageLengthHumidity) {
     int oldMovingAverageLengthHumidity = movingAverageLengthHumidity;
     movingAverageLengthHumidity = newMovingAverageLengthHumidity;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.HUMIDITY_V2_CONFIGURATION__MOVING_AVERAGE_LENGTH_HUMIDITY, oldMovingAverageLengthHumidity, movingAverageLengthHumidity));
   }
 
-    /**
+        /**
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-    public int getMovingAverageLengthTemperature() {
+  public int getMovingAverageLengthTemperature() {
     return movingAverageLengthTemperature;
   }
 
-    /**
+        /**
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-    public void setMovingAverageLengthTemperature(int newMovingAverageLengthTemperature) {
+  public void setMovingAverageLengthTemperature(int newMovingAverageLengthTemperature) {
     int oldMovingAverageLengthTemperature = movingAverageLengthTemperature;
     movingAverageLengthTemperature = newMovingAverageLengthTemperature;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.HUMIDITY_V2_CONFIGURATION__MOVING_AVERAGE_LENGTH_TEMPERATURE, oldMovingAverageLengthTemperature, movingAverageLengthTemperature));
   }
 
-    /**
+        /**
    * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
    * @generated

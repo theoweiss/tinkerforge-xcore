@@ -1418,6 +1418,8 @@ public class ModelSwitch<T> extends Switch<T> {
         MHumidityV2Device mHumidityV2Device = (MHumidityV2Device)theEObject;
         T result = caseMHumidityV2Device(mHumidityV2Device);
         if (result == null) result = caseMSubDevice(mHumidityV2Device);
+        if (result == null) result = caseMSensor(mHumidityV2Device);
+        if (result == null) result = caseMTFConfigConsumer(mHumidityV2Device);
         if (result == null) result = caseCallbackListener(mHumidityV2Device);
         if (result == null) result = caseMBaseDevice(mHumidityV2Device);
         if (result == null) result = defaultCase(theEObject);
@@ -1427,8 +1429,9 @@ public class ModelSwitch<T> extends Switch<T> {
         MHumidityV2Temperature mHumidityV2Temperature = (MHumidityV2Temperature)theEObject;
         T result = caseMHumidityV2Temperature(mHumidityV2Temperature);
         if (result == null) result = caseMHumidityV2Device(mHumidityV2Temperature);
-        if (result == null) result = caseMSensor(mHumidityV2Temperature);
         if (result == null) result = caseMSubDevice(mHumidityV2Temperature);
+        if (result == null) result = caseMSensor(mHumidityV2Temperature);
+        if (result == null) result = caseMTFConfigConsumer(mHumidityV2Temperature);
         if (result == null) result = caseCallbackListener(mHumidityV2Temperature);
         if (result == null) result = caseMBaseDevice(mHumidityV2Temperature);
         if (result == null) result = defaultCase(theEObject);
@@ -1438,9 +1441,9 @@ public class ModelSwitch<T> extends Switch<T> {
         MHumidityV2Humidity mHumidityV2Humidity = (MHumidityV2Humidity)theEObject;
         T result = caseMHumidityV2Humidity(mHumidityV2Humidity);
         if (result == null) result = caseMHumidityV2Device(mHumidityV2Humidity);
+        if (result == null) result = caseMSubDevice(mHumidityV2Humidity);
         if (result == null) result = caseMSensor(mHumidityV2Humidity);
         if (result == null) result = caseMTFConfigConsumer(mHumidityV2Humidity);
-        if (result == null) result = caseMSubDevice(mHumidityV2Humidity);
         if (result == null) result = caseCallbackListener(mHumidityV2Humidity);
         if (result == null) result = caseMBaseDevice(mHumidityV2Humidity);
         if (result == null) result = defaultCase(theEObject);

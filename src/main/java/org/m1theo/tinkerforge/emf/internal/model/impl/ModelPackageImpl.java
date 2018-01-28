@@ -6442,19 +6442,19 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
     /**
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-    public EAttribute getMBrickletHumidityV2_MovingAverageLengthHumidity() {
+  public EAttribute getMBrickletHumidityV2_MovingAverageLengthHumidity() {
         return (EAttribute)getMBrickletHumidityV2().getEStructuralFeatures().get(2);
   }
 
     /**
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-    public EAttribute getMBrickletHumidityV2_MovingAverageLengthTemperature() {
+  public EAttribute getMBrickletHumidityV2_MovingAverageLengthTemperature() {
         return (EAttribute)getMBrickletHumidityV2().getEStructuralFeatures().get(3);
   }
 
@@ -6493,6 +6493,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
     /**
    * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMHumidityV2Temperature_Threshold() {
+        return (EAttribute)getMHumidityV2Temperature().getEStructuralFeatures().get(1);
+  }
+
+    /**
+   * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
    * @generated
    */
@@ -6519,6 +6528,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
    */
     public EAttribute getMHumidityV2Humidity_DeviceType() {
         return (EAttribute)getMHumidityV2Humidity().getEStructuralFeatures().get(0);
+  }
+
+    /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMHumidityV2Humidity_Threshold() {
+        return (EAttribute)getMHumidityV2Humidity().getEStructuralFeatures().get(1);
   }
 
     /**
@@ -7618,19 +7636,19 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
     /**
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-    public EAttribute getHumidityV2Configuration_MovingAverageLengthHumidity() {
+  public EAttribute getHumidityV2Configuration_MovingAverageLengthHumidity() {
         return (EAttribute)getHumidityV2Configuration().getEStructuralFeatures().get(1);
   }
 
     /**
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-    public EAttribute getHumidityV2Configuration_MovingAverageLengthTemperature() {
+  public EAttribute getHumidityV2Configuration_MovingAverageLengthTemperature() {
         return (EAttribute)getHumidityV2Configuration().getEStructuralFeatures().get(2);
   }
 

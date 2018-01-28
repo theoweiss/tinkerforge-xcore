@@ -11,6 +11,8 @@
  */
 package org.m1theo.tinkerforge.emf.internal.model;
 
+import org.m1theo.tinkerforge.types.DecimalValue;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -19,8 +21,8 @@ package org.m1theo.tinkerforge.emf.internal.model;
  *
  *
  * @see org.m1theo.tinkerforge.emf.internal.model.ModelPackage#getMHumidityV2Device()
- * @model interface="true" abstract="true"
+ * @model interface="true" abstract="true" superTypes="org.m1theo.tinkerforge.emf.internal.model.MSubDevice&lt;org.m1theo.tinkerforge.emf.internal.model.MBrickletHumidityV2&gt; org.m1theo.tinkerforge.emf.internal.model.MSensor&lt;org.m1theo.tinkerforge.emf.internal.model.MDecimalValue&gt; org.m1theo.tinkerforge.emf.internal.model.MTFConfigConsumer&lt;org.m1theo.tinkerforge.emf.internal.model.TFBaseConfiguration&gt; org.m1theo.tinkerforge.emf.internal.model.CallbackListener"
  * @generated
  */
-public interface MHumidityV2Device extends MSubDevice<MBrickletHumidityV2>, CallbackListener {
+public interface MHumidityV2Device extends MSubDevice<MBrickletHumidityV2>, MSensor<DecimalValue>, MTFConfigConsumer<TFBaseConfiguration>, CallbackListener {
 } // MHumidityV2Device

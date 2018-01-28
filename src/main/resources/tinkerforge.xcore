@@ -972,17 +972,19 @@ class MBrickletHumidityV2 extends MDevice<TinkerBrickletHumidityV2>, MSubDeviceH
 }
 
 interface MHumidityV2Device extends MSubDevice<MBrickletHumidityV2>,
-    CallbackListener {
+    MSensor<MDecimalValue>, MTFConfigConsumer<TFBaseConfiguration>,
+   CallbackListener {
 }
 
-class MHumidityV2Temperature extends MHumidityV2Device, MSensor<MDecimalValue> {
+class MHumidityV2Temperature extends MHumidityV2Device {
     readonly String deviceType = "humidityV2_temperature"
+    BigDecimal threshold = "1"
     op void init(){}
 }
 
-class MHumidityV2Humidity extends MHumidityV2Device, MSensor<MDecimalValue>, MTFConfigConsumer<TFBaseConfiguration>,
-   CallbackListener {
+class MHumidityV2Humidity extends MHumidityV2Device {
     readonly String deviceType = "humidityV2_humidity"
+    BigDecimal threshold = "1"
     op void init(){}
 }
 

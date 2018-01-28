@@ -11,7 +11,7 @@
  */
 package org.m1theo.tinkerforge.emf.internal.model;
 
-import org.m1theo.tinkerforge.types.DecimalValue;
+import java.math.BigDecimal;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,13 +23,14 @@ import org.m1theo.tinkerforge.types.DecimalValue;
  * </p>
  * <ul>
  *   <li>{@link org.m1theo.tinkerforge.emf.internal.model.MHumidityV2Temperature#getDeviceType <em>Device Type</em>}</li>
+ *   <li>{@link org.m1theo.tinkerforge.emf.internal.model.MHumidityV2Temperature#getThreshold <em>Threshold</em>}</li>
  * </ul>
  *
  * @see org.m1theo.tinkerforge.emf.internal.model.ModelPackage#getMHumidityV2Temperature()
- * @model superTypes="org.m1theo.tinkerforge.emf.internal.model.MHumidityV2Device org.m1theo.tinkerforge.emf.internal.model.MSensor&lt;org.m1theo.tinkerforge.emf.internal.model.MDecimalValue&gt;"
+ * @model
  * @generated
  */
-public interface MHumidityV2Temperature extends MHumidityV2Device, MSensor<DecimalValue> {
+public interface MHumidityV2Temperature extends MHumidityV2Device {
 	/**
    * Returns the value of the '<em><b>Device Type</b></em>' attribute.
    * The default value is <code>"humidityV2_temperature"</code>.
@@ -47,6 +48,33 @@ public interface MHumidityV2Temperature extends MHumidityV2Device, MSensor<Decim
 	String getDeviceType();
 
 	/**
+   * Returns the value of the '<em><b>Threshold</b></em>' attribute.
+   * The default value is <code>"1"</code>.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Threshold</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Threshold</em>' attribute.
+   * @see #setThreshold(BigDecimal)
+   * @see org.m1theo.tinkerforge.emf.internal.model.ModelPackage#getMHumidityV2Temperature_Threshold()
+   * @model default="1" unique="false"
+   * @generated
+   */
+  BigDecimal getThreshold();
+
+  /**
+   * Sets the value of the '{@link org.m1theo.tinkerforge.emf.internal.model.MHumidityV2Temperature#getThreshold <em>Threshold</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Threshold</em>' attribute.
+   * @see #getThreshold()
+   * @generated
+   */
+  void setThreshold(BigDecimal value);
+
+  /**
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @model annotation="http://www.eclipse.org/emf/2002/GenModel body=''"

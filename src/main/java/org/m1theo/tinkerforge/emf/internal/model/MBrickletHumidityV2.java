@@ -76,58 +76,58 @@ public interface MBrickletHumidityV2 extends MDevice<BrickletHumidityV2>, MSubDe
    */
 	void setHeaterConfiguration(int value);
 
-	/**
+  /**
    * Returns the value of the '<em><b>Moving Average Length Humidity</b></em>' attribute.
    * The default value is <code>"100"</code>.
    * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Moving Average Length Humidity</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Moving Average Length Humidity</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
    * @return the value of the '<em>Moving Average Length Humidity</em>' attribute.
    * @see #setMovingAverageLengthHumidity(int)
    * @see org.m1theo.tinkerforge.emf.internal.model.ModelPackage#getMBrickletHumidityV2_MovingAverageLengthHumidity()
    * @model default="100" unique="false"
    * @generated
    */
-	int getMovingAverageLengthHumidity();
+  int getMovingAverageLengthHumidity();
 
-	/**
+  /**
    * Sets the value of the '{@link org.m1theo.tinkerforge.emf.internal.model.MBrickletHumidityV2#getMovingAverageLengthHumidity <em>Moving Average Length Humidity</em>}' attribute.
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @param value the new value of the '<em>Moving Average Length Humidity</em>' attribute.
    * @see #getMovingAverageLengthHumidity()
    * @generated
    */
-	void setMovingAverageLengthHumidity(int value);
+  void setMovingAverageLengthHumidity(int value);
 
-	/**
+  /**
    * Returns the value of the '<em><b>Moving Average Length Temperature</b></em>' attribute.
    * The default value is <code>"100"</code>.
    * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Moving Average Length Temperature</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Moving Average Length Temperature</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
    * @return the value of the '<em>Moving Average Length Temperature</em>' attribute.
    * @see #setMovingAverageLengthTemperature(int)
    * @see org.m1theo.tinkerforge.emf.internal.model.ModelPackage#getMBrickletHumidityV2_MovingAverageLengthTemperature()
    * @model default="100" unique="false"
    * @generated
    */
-	int getMovingAverageLengthTemperature();
+  int getMovingAverageLengthTemperature();
 
-	/**
+  /**
    * Sets the value of the '{@link org.m1theo.tinkerforge.emf.internal.model.MBrickletHumidityV2#getMovingAverageLengthTemperature <em>Moving Average Length Temperature</em>}' attribute.
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @param value the new value of the '<em>Moving Average Length Temperature</em>' attribute.
    * @see #getMovingAverageLengthTemperature()
    * @generated
    */
-	void setMovingAverageLengthTemperature(int value);
+  void setMovingAverageLengthTemperature(int value);
 
 } // MBrickletHumidityV2

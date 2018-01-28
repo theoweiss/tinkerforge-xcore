@@ -20373,22 +20373,22 @@ public interface ModelPackage extends EPackage {
 	/**
    * The feature id for the '<em><b>Moving Average Length Humidity</b></em>' attribute.
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-	int MBRICKLET_HUMIDITY_V2__MOVING_AVERAGE_LENGTH_HUMIDITY = MDEVICE_FEATURE_COUNT + 4;
+  int MBRICKLET_HUMIDITY_V2__MOVING_AVERAGE_LENGTH_HUMIDITY = MDEVICE_FEATURE_COUNT + 4;
 
-	/**
+  /**
    * The feature id for the '<em><b>Moving Average Length Temperature</b></em>' attribute.
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-	int MBRICKLET_HUMIDITY_V2__MOVING_AVERAGE_LENGTH_TEMPERATURE = MDEVICE_FEATURE_COUNT + 5;
+  int MBRICKLET_HUMIDITY_V2__MOVING_AVERAGE_LENGTH_TEMPERATURE = MDEVICE_FEATURE_COUNT + 5;
 
-	/**
+  /**
    * The number of structural features of the '<em>MBricklet Humidity V2</em>' class.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -20507,13 +20507,31 @@ public interface ModelPackage extends EPackage {
 	int MHUMIDITY_V2_DEVICE__MBRICK = MSUB_DEVICE__MBRICK;
 
 	/**
+   * The feature id for the '<em><b>Sensor Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MHUMIDITY_V2_DEVICE__SENSOR_VALUE = MSUB_DEVICE_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Tf Config</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MHUMIDITY_V2_DEVICE__TF_CONFIG = MSUB_DEVICE_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Callback Period</b></em>' attribute.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-	int MHUMIDITY_V2_DEVICE__CALLBACK_PERIOD = MSUB_DEVICE_FEATURE_COUNT + 0;
+	int MHUMIDITY_V2_DEVICE__CALLBACK_PERIOD = MSUB_DEVICE_FEATURE_COUNT + 2;
 
 	/**
    * The number of structural features of the '<em>MHumidity V2 Device</em>' class.
@@ -20522,7 +20540,7 @@ public interface ModelPackage extends EPackage {
    * @generated
    * @ordered
    */
-	int MHUMIDITY_V2_DEVICE_FEATURE_COUNT = MSUB_DEVICE_FEATURE_COUNT + 1;
+	int MHUMIDITY_V2_DEVICE_FEATURE_COUNT = MSUB_DEVICE_FEATURE_COUNT + 3;
 
 	/**
    * The operation id for the '<em>Init</em>' operation.
@@ -20552,13 +20570,22 @@ public interface ModelPackage extends EPackage {
 	int MHUMIDITY_V2_DEVICE___DISABLE = MSUB_DEVICE___DISABLE;
 
 	/**
+   * The operation id for the '<em>Fetch Sensor Value</em>' operation.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MHUMIDITY_V2_DEVICE___FETCH_SENSOR_VALUE = MSUB_DEVICE_OPERATION_COUNT + 0;
+
+  /**
    * The number of operations of the '<em>MHumidity V2 Device</em>' class.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-	int MHUMIDITY_V2_DEVICE_OPERATION_COUNT = MSUB_DEVICE_OPERATION_COUNT + 0;
+	int MHUMIDITY_V2_DEVICE_OPERATION_COUNT = MSUB_DEVICE_OPERATION_COUNT + 1;
 
 	/**
    * The meta object id for the '{@link org.m1theo.tinkerforge.emf.internal.model.impl.MHumidityV2TemperatureImpl <em>MHumidity V2 Temperature</em>}' class.
@@ -20625,6 +20652,24 @@ public interface ModelPackage extends EPackage {
 	int MHUMIDITY_V2_TEMPERATURE__MBRICK = MHUMIDITY_V2_DEVICE__MBRICK;
 
 	/**
+   * The feature id for the '<em><b>Sensor Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+	int MHUMIDITY_V2_TEMPERATURE__SENSOR_VALUE = MHUMIDITY_V2_DEVICE__SENSOR_VALUE;
+
+	/**
+   * The feature id for the '<em><b>Tf Config</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MHUMIDITY_V2_TEMPERATURE__TF_CONFIG = MHUMIDITY_V2_DEVICE__TF_CONFIG;
+
+  /**
    * The feature id for the '<em><b>Callback Period</b></em>' attribute.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -20633,25 +20678,25 @@ public interface ModelPackage extends EPackage {
    */
 	int MHUMIDITY_V2_TEMPERATURE__CALLBACK_PERIOD = MHUMIDITY_V2_DEVICE__CALLBACK_PERIOD;
 
-	/**
-   * The feature id for the '<em><b>Sensor Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-	int MHUMIDITY_V2_TEMPERATURE__SENSOR_VALUE = MHUMIDITY_V2_DEVICE_FEATURE_COUNT + 0;
-
-	/**
+  /**
    * The feature id for the '<em><b>Device Type</b></em>' attribute.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-	int MHUMIDITY_V2_TEMPERATURE__DEVICE_TYPE = MHUMIDITY_V2_DEVICE_FEATURE_COUNT + 1;
+	int MHUMIDITY_V2_TEMPERATURE__DEVICE_TYPE = MHUMIDITY_V2_DEVICE_FEATURE_COUNT + 0;
 
 	/**
+   * The feature id for the '<em><b>Threshold</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MHUMIDITY_V2_TEMPERATURE__THRESHOLD = MHUMIDITY_V2_DEVICE_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>MHumidity V2 Temperature</em>' class.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -20685,7 +20730,7 @@ public interface ModelPackage extends EPackage {
    * @generated
    * @ordered
    */
-	int MHUMIDITY_V2_TEMPERATURE___FETCH_SENSOR_VALUE = MHUMIDITY_V2_DEVICE_OPERATION_COUNT + 0;
+	int MHUMIDITY_V2_TEMPERATURE___FETCH_SENSOR_VALUE = MHUMIDITY_V2_DEVICE___FETCH_SENSOR_VALUE;
 
 	/**
    * The operation id for the '<em>Init</em>' operation.
@@ -20694,7 +20739,7 @@ public interface ModelPackage extends EPackage {
    * @generated
    * @ordered
    */
-	int MHUMIDITY_V2_TEMPERATURE___INIT = MHUMIDITY_V2_DEVICE_OPERATION_COUNT + 1;
+	int MHUMIDITY_V2_TEMPERATURE___INIT = MHUMIDITY_V2_DEVICE_OPERATION_COUNT + 0;
 
 	/**
    * The number of operations of the '<em>MHumidity V2 Temperature</em>' class.
@@ -20703,7 +20748,7 @@ public interface ModelPackage extends EPackage {
    * @generated
    * @ordered
    */
-	int MHUMIDITY_V2_TEMPERATURE_OPERATION_COUNT = MHUMIDITY_V2_DEVICE_OPERATION_COUNT + 2;
+	int MHUMIDITY_V2_TEMPERATURE_OPERATION_COUNT = MHUMIDITY_V2_DEVICE_OPERATION_COUNT + 1;
 
 	/**
    * The meta object id for the '{@link org.m1theo.tinkerforge.emf.internal.model.impl.MHumidityV2HumidityImpl <em>MHumidity V2 Humidity</em>}' class.
@@ -20770,6 +20815,24 @@ public interface ModelPackage extends EPackage {
 	int MHUMIDITY_V2_HUMIDITY__MBRICK = MHUMIDITY_V2_DEVICE__MBRICK;
 
 	/**
+   * The feature id for the '<em><b>Sensor Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+	int MHUMIDITY_V2_HUMIDITY__SENSOR_VALUE = MHUMIDITY_V2_DEVICE__SENSOR_VALUE;
+
+	/**
+   * The feature id for the '<em><b>Tf Config</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+	int MHUMIDITY_V2_HUMIDITY__TF_CONFIG = MHUMIDITY_V2_DEVICE__TF_CONFIG;
+
+  /**
    * The feature id for the '<em><b>Callback Period</b></em>' attribute.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -20779,40 +20842,31 @@ public interface ModelPackage extends EPackage {
 	int MHUMIDITY_V2_HUMIDITY__CALLBACK_PERIOD = MHUMIDITY_V2_DEVICE__CALLBACK_PERIOD;
 
 	/**
-   * The feature id for the '<em><b>Sensor Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-	int MHUMIDITY_V2_HUMIDITY__SENSOR_VALUE = MHUMIDITY_V2_DEVICE_FEATURE_COUNT + 0;
-
-	/**
-   * The feature id for the '<em><b>Tf Config</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-	int MHUMIDITY_V2_HUMIDITY__TF_CONFIG = MHUMIDITY_V2_DEVICE_FEATURE_COUNT + 1;
-
-	/**
    * The feature id for the '<em><b>Device Type</b></em>' attribute.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-	int MHUMIDITY_V2_HUMIDITY__DEVICE_TYPE = MHUMIDITY_V2_DEVICE_FEATURE_COUNT + 2;
+	int MHUMIDITY_V2_HUMIDITY__DEVICE_TYPE = MHUMIDITY_V2_DEVICE_FEATURE_COUNT + 0;
 
 	/**
+   * The feature id for the '<em><b>Threshold</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MHUMIDITY_V2_HUMIDITY__THRESHOLD = MHUMIDITY_V2_DEVICE_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>MHumidity V2 Humidity</em>' class.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-	int MHUMIDITY_V2_HUMIDITY_FEATURE_COUNT = MHUMIDITY_V2_DEVICE_FEATURE_COUNT + 3;
+	int MHUMIDITY_V2_HUMIDITY_FEATURE_COUNT = MHUMIDITY_V2_DEVICE_FEATURE_COUNT + 2;
 
 	/**
    * The operation id for the '<em>Enable</em>' operation.
@@ -20839,7 +20893,7 @@ public interface ModelPackage extends EPackage {
    * @generated
    * @ordered
    */
-	int MHUMIDITY_V2_HUMIDITY___FETCH_SENSOR_VALUE = MHUMIDITY_V2_DEVICE_OPERATION_COUNT + 0;
+	int MHUMIDITY_V2_HUMIDITY___FETCH_SENSOR_VALUE = MHUMIDITY_V2_DEVICE___FETCH_SENSOR_VALUE;
 
 	/**
    * The operation id for the '<em>Init</em>' operation.
@@ -20848,7 +20902,7 @@ public interface ModelPackage extends EPackage {
    * @generated
    * @ordered
    */
-	int MHUMIDITY_V2_HUMIDITY___INIT = MHUMIDITY_V2_DEVICE_OPERATION_COUNT + 1;
+	int MHUMIDITY_V2_HUMIDITY___INIT = MHUMIDITY_V2_DEVICE_OPERATION_COUNT + 0;
 
 	/**
    * The number of operations of the '<em>MHumidity V2 Humidity</em>' class.
@@ -20857,7 +20911,7 @@ public interface ModelPackage extends EPackage {
    * @generated
    * @ordered
    */
-	int MHUMIDITY_V2_HUMIDITY_OPERATION_COUNT = MHUMIDITY_V2_DEVICE_OPERATION_COUNT + 2;
+	int MHUMIDITY_V2_HUMIDITY_OPERATION_COUNT = MHUMIDITY_V2_DEVICE_OPERATION_COUNT + 1;
 
 	/**
    * The meta object id for the '{@link org.m1theo.tinkerforge.emf.internal.model.impl.MBrickletBarometerImpl <em>MBricklet Barometer</em>}' class.
@@ -25002,22 +25056,22 @@ public interface ModelPackage extends EPackage {
 	/**
    * The feature id for the '<em><b>Moving Average Length Humidity</b></em>' attribute.
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-	int HUMIDITY_V2_CONFIGURATION__MOVING_AVERAGE_LENGTH_HUMIDITY = TF_CONFIG_FEATURE_COUNT + 1;
+  int HUMIDITY_V2_CONFIGURATION__MOVING_AVERAGE_LENGTH_HUMIDITY = TF_CONFIG_FEATURE_COUNT + 1;
 
-	/**
+  /**
    * The feature id for the '<em><b>Moving Average Length Temperature</b></em>' attribute.
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-	int HUMIDITY_V2_CONFIGURATION__MOVING_AVERAGE_LENGTH_TEMPERATURE = TF_CONFIG_FEATURE_COUNT + 2;
+  int HUMIDITY_V2_CONFIGURATION__MOVING_AVERAGE_LENGTH_TEMPERATURE = TF_CONFIG_FEATURE_COUNT + 2;
 
-	/**
+  /**
    * The number of structural features of the '<em>Humidity V2 Configuration</em>' class.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -32134,26 +32188,26 @@ public interface ModelPackage extends EPackage {
 	/**
    * Returns the meta object for the attribute '{@link org.m1theo.tinkerforge.emf.internal.model.MBrickletHumidityV2#getMovingAverageLengthHumidity <em>Moving Average Length Humidity</em>}'.
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Moving Average Length Humidity</em>'.
    * @see org.m1theo.tinkerforge.emf.internal.model.MBrickletHumidityV2#getMovingAverageLengthHumidity()
    * @see #getMBrickletHumidityV2()
    * @generated
    */
-	EAttribute getMBrickletHumidityV2_MovingAverageLengthHumidity();
+  EAttribute getMBrickletHumidityV2_MovingAverageLengthHumidity();
 
-	/**
+  /**
    * Returns the meta object for the attribute '{@link org.m1theo.tinkerforge.emf.internal.model.MBrickletHumidityV2#getMovingAverageLengthTemperature <em>Moving Average Length Temperature</em>}'.
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Moving Average Length Temperature</em>'.
    * @see org.m1theo.tinkerforge.emf.internal.model.MBrickletHumidityV2#getMovingAverageLengthTemperature()
    * @see #getMBrickletHumidityV2()
    * @generated
    */
-	EAttribute getMBrickletHumidityV2_MovingAverageLengthTemperature();
+  EAttribute getMBrickletHumidityV2_MovingAverageLengthTemperature();
 
-	/**
+  /**
    * Returns the meta object for class '{@link org.m1theo.tinkerforge.emf.internal.model.MHumidityV2Device <em>MHumidity V2 Device</em>}'.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -32185,6 +32239,17 @@ public interface ModelPackage extends EPackage {
 	EAttribute getMHumidityV2Temperature_DeviceType();
 
 	/**
+   * Returns the meta object for the attribute '{@link org.m1theo.tinkerforge.emf.internal.model.MHumidityV2Temperature#getThreshold <em>Threshold</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Threshold</em>'.
+   * @see org.m1theo.tinkerforge.emf.internal.model.MHumidityV2Temperature#getThreshold()
+   * @see #getMHumidityV2Temperature()
+   * @generated
+   */
+  EAttribute getMHumidityV2Temperature_Threshold();
+
+  /**
    * Returns the meta object for the '{@link org.m1theo.tinkerforge.emf.internal.model.MHumidityV2Temperature#init() <em>Init</em>}' operation.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -32216,6 +32281,17 @@ public interface ModelPackage extends EPackage {
 	EAttribute getMHumidityV2Humidity_DeviceType();
 
 	/**
+   * Returns the meta object for the attribute '{@link org.m1theo.tinkerforge.emf.internal.model.MHumidityV2Humidity#getThreshold <em>Threshold</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Threshold</em>'.
+   * @see org.m1theo.tinkerforge.emf.internal.model.MHumidityV2Humidity#getThreshold()
+   * @see #getMHumidityV2Humidity()
+   * @generated
+   */
+  EAttribute getMHumidityV2Humidity_Threshold();
+
+  /**
    * Returns the meta object for the '{@link org.m1theo.tinkerforge.emf.internal.model.MHumidityV2Humidity#init() <em>Init</em>}' operation.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -33401,26 +33477,26 @@ public interface ModelPackage extends EPackage {
 	/**
    * Returns the meta object for the attribute '{@link org.m1theo.tinkerforge.emf.internal.model.HumidityV2Configuration#getMovingAverageLengthHumidity <em>Moving Average Length Humidity</em>}'.
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Moving Average Length Humidity</em>'.
    * @see org.m1theo.tinkerforge.emf.internal.model.HumidityV2Configuration#getMovingAverageLengthHumidity()
    * @see #getHumidityV2Configuration()
    * @generated
    */
-	EAttribute getHumidityV2Configuration_MovingAverageLengthHumidity();
+  EAttribute getHumidityV2Configuration_MovingAverageLengthHumidity();
 
-	/**
+  /**
    * Returns the meta object for the attribute '{@link org.m1theo.tinkerforge.emf.internal.model.HumidityV2Configuration#getMovingAverageLengthTemperature <em>Moving Average Length Temperature</em>}'.
    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Moving Average Length Temperature</em>'.
    * @see org.m1theo.tinkerforge.emf.internal.model.HumidityV2Configuration#getMovingAverageLengthTemperature()
    * @see #getHumidityV2Configuration()
    * @generated
    */
-	EAttribute getHumidityV2Configuration_MovingAverageLengthTemperature();
+  EAttribute getHumidityV2Configuration_MovingAverageLengthTemperature();
 
-	/**
+  /**
    * Returns the meta object for class '{@link org.m1theo.tinkerforge.emf.internal.model.AmbientLightV2Configuration <em>Ambient Light V2 Configuration</em>}'.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

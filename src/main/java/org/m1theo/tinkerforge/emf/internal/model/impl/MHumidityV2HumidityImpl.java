@@ -13,6 +13,7 @@ package org.m1theo.tinkerforge.emf.internal.model.impl;
 
 import java.lang.reflect.InvocationTargetException;
 
+import java.math.BigDecimal;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -35,8 +36,16 @@ import org.m1theo.tinkerforge.emf.internal.model.MSubDeviceHolder;
 import org.m1theo.tinkerforge.emf.internal.model.MTFConfigConsumer;
 import org.m1theo.tinkerforge.emf.internal.model.ModelPackage;
 import org.m1theo.tinkerforge.emf.internal.model.TFBaseConfiguration;
+import org.m1theo.tinkerforge.internal.LoggerConstants;
+import org.m1theo.tinkerforge.internal.TinkerforgeErrorHandler;
+import org.m1theo.tinkerforge.internal.tools.Tools;
 import org.m1theo.tinkerforge.types.DecimalValue;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.tinkerforge.BrickletHumidityV2;
+import com.tinkerforge.NotConnectedException;
+import com.tinkerforge.TimeoutException;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,10 +61,11 @@ import org.slf4j.Logger;
  *   <li>{@link org.m1theo.tinkerforge.emf.internal.model.impl.MHumidityV2HumidityImpl#getEnabledA <em>Enabled A</em>}</li>
  *   <li>{@link org.m1theo.tinkerforge.emf.internal.model.impl.MHumidityV2HumidityImpl#getSubId <em>Sub Id</em>}</li>
  *   <li>{@link org.m1theo.tinkerforge.emf.internal.model.impl.MHumidityV2HumidityImpl#getMbrick <em>Mbrick</em>}</li>
- *   <li>{@link org.m1theo.tinkerforge.emf.internal.model.impl.MHumidityV2HumidityImpl#getCallbackPeriod <em>Callback Period</em>}</li>
  *   <li>{@link org.m1theo.tinkerforge.emf.internal.model.impl.MHumidityV2HumidityImpl#getSensorValue <em>Sensor Value</em>}</li>
  *   <li>{@link org.m1theo.tinkerforge.emf.internal.model.impl.MHumidityV2HumidityImpl#getTfConfig <em>Tf Config</em>}</li>
+ *   <li>{@link org.m1theo.tinkerforge.emf.internal.model.impl.MHumidityV2HumidityImpl#getCallbackPeriod <em>Callback Period</em>}</li>
  *   <li>{@link org.m1theo.tinkerforge.emf.internal.model.impl.MHumidityV2HumidityImpl#getDeviceType <em>Device Type</em>}</li>
+ *   <li>{@link org.m1theo.tinkerforge.emf.internal.model.impl.MHumidityV2HumidityImpl#getThreshold <em>Threshold</em>}</li>
  * </ul>
  *
  * @generated
@@ -162,26 +172,6 @@ public class MHumidityV2HumidityImpl extends MinimalEObjectImpl.Container implem
     protected String subId = SUB_ID_EDEFAULT;
 
     /**
-   * The default value of the '{@link #getCallbackPeriod() <em>Callback Period</em>}' attribute.
-   * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-   * @see #getCallbackPeriod()
-   * @generated
-   * @ordered
-   */
-    protected static final long CALLBACK_PERIOD_EDEFAULT = 1000L;
-
-    /**
-   * The cached value of the '{@link #getCallbackPeriod() <em>Callback Period</em>}' attribute.
-   * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-   * @see #getCallbackPeriod()
-   * @generated
-   * @ordered
-   */
-    protected long callbackPeriod = CALLBACK_PERIOD_EDEFAULT;
-
-    /**
    * The cached value of the '{@link #getSensorValue() <em>Sensor Value</em>}' attribute.
    * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -202,6 +192,26 @@ public class MHumidityV2HumidityImpl extends MinimalEObjectImpl.Container implem
     protected TFBaseConfiguration tfConfig;
 
     /**
+   * The default value of the '{@link #getCallbackPeriod() <em>Callback Period</em>}' attribute.
+   * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+   * @see #getCallbackPeriod()
+   * @generated
+   * @ordered
+   */
+    protected static final long CALLBACK_PERIOD_EDEFAULT = 1000L;
+
+    /**
+   * The cached value of the '{@link #getCallbackPeriod() <em>Callback Period</em>}' attribute.
+   * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+   * @see #getCallbackPeriod()
+   * @generated
+   * @ordered
+   */
+    protected long callbackPeriod = CALLBACK_PERIOD_EDEFAULT;
+
+    /**
    * The default value of the '{@link #getDeviceType() <em>Device Type</em>}' attribute.
    * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -220,6 +230,30 @@ public class MHumidityV2HumidityImpl extends MinimalEObjectImpl.Container implem
    * @ordered
    */
     protected String deviceType = DEVICE_TYPE_EDEFAULT;
+
+    /**
+   * The default value of the '{@link #getThreshold() <em>Threshold</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getThreshold()
+   * @generated
+   * @ordered
+   */
+  protected static final BigDecimal THRESHOLD_EDEFAULT = new BigDecimal("1");
+
+    /**
+   * The cached value of the '{@link #getThreshold() <em>Threshold</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getThreshold()
+   * @generated
+   * @ordered
+   */
+  protected BigDecimal threshold = THRESHOLD_EDEFAULT;
+
+    private BrickletHumidityV2 tinkerforgeDevice;
+
+    private HumidityListener listener;
 
     /**
    * <!-- begin-user-doc -->
@@ -449,10 +483,10 @@ public class MHumidityV2HumidityImpl extends MinimalEObjectImpl.Container implem
 
     /**
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-    public NotificationChain basicSetTfConfig(TFBaseConfiguration newTfConfig, NotificationChain msgs) {
+  public NotificationChain basicSetTfConfig(TFBaseConfiguration newTfConfig, NotificationChain msgs) {
     TFBaseConfiguration oldTfConfig = tfConfig;
     tfConfig = newTfConfig;
     if (eNotificationRequired()) {
@@ -464,10 +498,10 @@ public class MHumidityV2HumidityImpl extends MinimalEObjectImpl.Container implem
 
     /**
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-    public void setTfConfig(TFBaseConfiguration newTfConfig) {
+  public void setTfConfig(TFBaseConfiguration newTfConfig) {
     if (newTfConfig != tfConfig) {
       NotificationChain msgs = null;
       if (tfConfig != null)
@@ -492,44 +526,106 @@ public class MHumidityV2HumidityImpl extends MinimalEObjectImpl.Container implem
 
     /**
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
+   */
+  public BigDecimal getThreshold() {
+    return threshold;
+  }
+
+    /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setThreshold(BigDecimal newThreshold) {
+    BigDecimal oldThreshold = threshold;
+    threshold = newThreshold;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MHUMIDITY_V2_HUMIDITY__THRESHOLD, oldThreshold, threshold));
+  }
+
+    /**
+   * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+   * @generated NOT
    */
     public void init() {
-    
+      setEnabledA(new AtomicBoolean());
+      logger = LoggerFactory.getLogger(MHumidityV2HumidityImpl.class);
   }
 
     /**
    * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-   * @generated
+   * @generated NOT
    */
     public void fetchSensorValue() {
-    // TODO: implement this method
-    // Ensure that you remove @generated or mark it @generated NOT
-    throw new UnsupportedOperationException();
-  }
+      try {
+        int humidity = tinkerforgeDevice.getHumidity();
+        DecimalValue value = Tools.calculate(humidity);
+        setSensorValue(value);
+      } catch (TimeoutException e) {
+        TinkerforgeErrorHandler.handleError(this, TinkerforgeErrorHandler.TF_TIMEOUT_EXCEPTION, e);
+      } catch (NotConnectedException e) {
+        TinkerforgeErrorHandler.handleError(this, TinkerforgeErrorHandler.TF_NOT_CONNECTION_EXCEPTION, e);
+      }
+    }
 
     /**
    * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-   * @generated
+   * @generated NOT
    */
     public void enable() {
-    // TODO: implement this method
-    // Ensure that you remove @generated or mark it @generated NOT
-    throw new UnsupportedOperationException();
+      if (tfConfig != null) {
+        if (tfConfig.eIsSet(tfConfig.eClass().getEStructuralFeature("threshold"))) {
+            logger.debug("threshold {}", tfConfig.getThreshold());
+            setThreshold(tfConfig.getThreshold());
+        }
+        if (tfConfig.eIsSet(tfConfig.eClass().getEStructuralFeature("callbackPeriod"))) {
+            logger.debug("callbackPeriod {}", tfConfig.getCallbackPeriod());
+            setCallbackPeriod(tfConfig.getCallbackPeriod());
+        }
+    }
+      tinkerforgeDevice = getMbrick().getTinkerforgeDevice();
+      try {
+        tinkerforgeDevice.setHumidityCallbackConfiguration(getCallbackPeriod(), true, 'x', 0, 0);
+        listener = new HumidityListener();
+        tinkerforgeDevice.addHumidityListener(listener);
+        fetchSensorValue();
+      } catch (TimeoutException e) {
+        TinkerforgeErrorHandler.handleError(this, TinkerforgeErrorHandler.TF_TIMEOUT_EXCEPTION, e);
+      } catch (NotConnectedException e) {
+        TinkerforgeErrorHandler.handleError(this, TinkerforgeErrorHandler.TF_NOT_CONNECTION_EXCEPTION, e);
+      }
   }
 
+    private class HumidityListener implements BrickletHumidityV2.HumidityListener {
+
+      @Override
+      public void humidity(int newValue) {
+        DecimalValue value = Tools.calculate(newValue);
+        logger.trace("{} got new value {}", LoggerConstants.TFMODELUPDATE, value);
+        if (value.compareTo(getSensorValue(), getThreshold()) != 0) {
+          logger.trace("{} setting new value {}", LoggerConstants.TFMODELUPDATE, value);
+          setSensorValue(value);
+        } else {
+          logger.trace("{} omitting new value {}", LoggerConstants.TFMODELUPDATE, value);
+        }
+      }      
+    }
+    
     /**
    * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-   * @generated
+   * @generated NOT
    */
     public void disable() {
-    // TODO: implement this method
-    // Ensure that you remove @generated or mark it @generated NOT
-    throw new UnsupportedOperationException();
+      if (listener != null) {
+        tinkerforgeDevice.removeHumidityListener(listener);
+      }
+      tinkerforgeDevice = null;
   }
 
     /**
@@ -599,14 +695,16 @@ public class MHumidityV2HumidityImpl extends MinimalEObjectImpl.Container implem
       case ModelPackage.MHUMIDITY_V2_HUMIDITY__MBRICK:
         if (resolve) return getMbrick();
         return basicGetMbrick();
-      case ModelPackage.MHUMIDITY_V2_HUMIDITY__CALLBACK_PERIOD:
-        return getCallbackPeriod();
       case ModelPackage.MHUMIDITY_V2_HUMIDITY__SENSOR_VALUE:
         return getSensorValue();
       case ModelPackage.MHUMIDITY_V2_HUMIDITY__TF_CONFIG:
         return getTfConfig();
+      case ModelPackage.MHUMIDITY_V2_HUMIDITY__CALLBACK_PERIOD:
+        return getCallbackPeriod();
       case ModelPackage.MHUMIDITY_V2_HUMIDITY__DEVICE_TYPE:
         return getDeviceType();
+      case ModelPackage.MHUMIDITY_V2_HUMIDITY__THRESHOLD:
+        return getThreshold();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -637,14 +735,17 @@ public class MHumidityV2HumidityImpl extends MinimalEObjectImpl.Container implem
       case ModelPackage.MHUMIDITY_V2_HUMIDITY__MBRICK:
         setMbrick((MBrickletHumidityV2)newValue);
         return;
-      case ModelPackage.MHUMIDITY_V2_HUMIDITY__CALLBACK_PERIOD:
-        setCallbackPeriod((Long)newValue);
-        return;
       case ModelPackage.MHUMIDITY_V2_HUMIDITY__SENSOR_VALUE:
         setSensorValue((DecimalValue)newValue);
         return;
       case ModelPackage.MHUMIDITY_V2_HUMIDITY__TF_CONFIG:
         setTfConfig((TFBaseConfiguration)newValue);
+        return;
+      case ModelPackage.MHUMIDITY_V2_HUMIDITY__CALLBACK_PERIOD:
+        setCallbackPeriod((Long)newValue);
+        return;
+      case ModelPackage.MHUMIDITY_V2_HUMIDITY__THRESHOLD:
+        setThreshold((BigDecimal)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -676,14 +777,17 @@ public class MHumidityV2HumidityImpl extends MinimalEObjectImpl.Container implem
       case ModelPackage.MHUMIDITY_V2_HUMIDITY__MBRICK:
         setMbrick((MBrickletHumidityV2)null);
         return;
-      case ModelPackage.MHUMIDITY_V2_HUMIDITY__CALLBACK_PERIOD:
-        setCallbackPeriod(CALLBACK_PERIOD_EDEFAULT);
-        return;
       case ModelPackage.MHUMIDITY_V2_HUMIDITY__SENSOR_VALUE:
         setSensorValue((DecimalValue)null);
         return;
       case ModelPackage.MHUMIDITY_V2_HUMIDITY__TF_CONFIG:
         setTfConfig((TFBaseConfiguration)null);
+        return;
+      case ModelPackage.MHUMIDITY_V2_HUMIDITY__CALLBACK_PERIOD:
+        setCallbackPeriod(CALLBACK_PERIOD_EDEFAULT);
+        return;
+      case ModelPackage.MHUMIDITY_V2_HUMIDITY__THRESHOLD:
+        setThreshold(THRESHOLD_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -709,14 +813,16 @@ public class MHumidityV2HumidityImpl extends MinimalEObjectImpl.Container implem
         return SUB_ID_EDEFAULT == null ? subId != null : !SUB_ID_EDEFAULT.equals(subId);
       case ModelPackage.MHUMIDITY_V2_HUMIDITY__MBRICK:
         return basicGetMbrick() != null;
-      case ModelPackage.MHUMIDITY_V2_HUMIDITY__CALLBACK_PERIOD:
-        return callbackPeriod != CALLBACK_PERIOD_EDEFAULT;
       case ModelPackage.MHUMIDITY_V2_HUMIDITY__SENSOR_VALUE:
         return sensorValue != null;
       case ModelPackage.MHUMIDITY_V2_HUMIDITY__TF_CONFIG:
         return tfConfig != null;
+      case ModelPackage.MHUMIDITY_V2_HUMIDITY__CALLBACK_PERIOD:
+        return callbackPeriod != CALLBACK_PERIOD_EDEFAULT;
       case ModelPackage.MHUMIDITY_V2_HUMIDITY__DEVICE_TYPE:
         return DEVICE_TYPE_EDEFAULT == null ? deviceType != null : !DEVICE_TYPE_EDEFAULT.equals(deviceType);
+      case ModelPackage.MHUMIDITY_V2_HUMIDITY__THRESHOLD:
+        return THRESHOLD_EDEFAULT == null ? threshold != null : !THRESHOLD_EDEFAULT.equals(threshold);
     }
     return super.eIsSet(featureID);
   }
@@ -728,12 +834,6 @@ public class MHumidityV2HumidityImpl extends MinimalEObjectImpl.Container implem
    */
     @Override
     public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-    if (baseClass == CallbackListener.class) {
-      switch (derivedFeatureID) {
-        case ModelPackage.MHUMIDITY_V2_HUMIDITY__CALLBACK_PERIOD: return ModelPackage.CALLBACK_LISTENER__CALLBACK_PERIOD;
-        default: return -1;
-      }
-    }
     if (baseClass == MSensor.class) {
       switch (derivedFeatureID) {
         case ModelPackage.MHUMIDITY_V2_HUMIDITY__SENSOR_VALUE: return ModelPackage.MSENSOR__SENSOR_VALUE;
@@ -743,6 +843,12 @@ public class MHumidityV2HumidityImpl extends MinimalEObjectImpl.Container implem
     if (baseClass == MTFConfigConsumer.class) {
       switch (derivedFeatureID) {
         case ModelPackage.MHUMIDITY_V2_HUMIDITY__TF_CONFIG: return ModelPackage.MTF_CONFIG_CONSUMER__TF_CONFIG;
+        default: return -1;
+      }
+    }
+    if (baseClass == CallbackListener.class) {
+      switch (derivedFeatureID) {
+        case ModelPackage.MHUMIDITY_V2_HUMIDITY__CALLBACK_PERIOD: return ModelPackage.CALLBACK_LISTENER__CALLBACK_PERIOD;
         default: return -1;
       }
     }
@@ -756,12 +862,6 @@ public class MHumidityV2HumidityImpl extends MinimalEObjectImpl.Container implem
    */
     @Override
     public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-    if (baseClass == CallbackListener.class) {
-      switch (baseFeatureID) {
-        case ModelPackage.CALLBACK_LISTENER__CALLBACK_PERIOD: return ModelPackage.MHUMIDITY_V2_HUMIDITY__CALLBACK_PERIOD;
-        default: return -1;
-      }
-    }
     if (baseClass == MSensor.class) {
       switch (baseFeatureID) {
         case ModelPackage.MSENSOR__SENSOR_VALUE: return ModelPackage.MHUMIDITY_V2_HUMIDITY__SENSOR_VALUE;
@@ -771,6 +871,12 @@ public class MHumidityV2HumidityImpl extends MinimalEObjectImpl.Container implem
     if (baseClass == MTFConfigConsumer.class) {
       switch (baseFeatureID) {
         case ModelPackage.MTF_CONFIG_CONSUMER__TF_CONFIG: return ModelPackage.MHUMIDITY_V2_HUMIDITY__TF_CONFIG;
+        default: return -1;
+      }
+    }
+    if (baseClass == CallbackListener.class) {
+      switch (baseFeatureID) {
+        case ModelPackage.CALLBACK_LISTENER__CALLBACK_PERIOD: return ModelPackage.MHUMIDITY_V2_HUMIDITY__CALLBACK_PERIOD;
         default: return -1;
       }
     }
@@ -784,11 +890,6 @@ public class MHumidityV2HumidityImpl extends MinimalEObjectImpl.Container implem
    */
     @Override
     public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-    if (baseClass == CallbackListener.class) {
-      switch (baseOperationID) {
-        default: return -1;
-      }
-    }
     if (baseClass == MSensor.class) {
       switch (baseOperationID) {
         case ModelPackage.MSENSOR___FETCH_SENSOR_VALUE: return ModelPackage.MHUMIDITY_V2_HUMIDITY___FETCH_SENSOR_VALUE;
@@ -796,6 +897,11 @@ public class MHumidityV2HumidityImpl extends MinimalEObjectImpl.Container implem
       }
     }
     if (baseClass == MTFConfigConsumer.class) {
+      switch (baseOperationID) {
+        default: return -1;
+      }
+    }
+    if (baseClass == CallbackListener.class) {
       switch (baseOperationID) {
         default: return -1;
       }
@@ -847,12 +953,14 @@ public class MHumidityV2HumidityImpl extends MinimalEObjectImpl.Container implem
     result.append(enabledA);
     result.append(", subId: ");
     result.append(subId);
-    result.append(", callbackPeriod: ");
-    result.append(callbackPeriod);
     result.append(", sensorValue: ");
     result.append(sensorValue);
+    result.append(", callbackPeriod: ");
+    result.append(callbackPeriod);
     result.append(", deviceType: ");
     result.append(deviceType);
+    result.append(", threshold: ");
+    result.append(threshold);
     result.append(')');
     return result.toString();
   }

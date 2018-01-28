@@ -328,42 +328,42 @@ public class MBrickletHumidityV2Impl extends MinimalEObjectImpl.Container implem
     /**
    * The default value of the '{@link #getMovingAverageLengthHumidity() <em>Moving Average Length Humidity</em>}' attribute.
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @see #getMovingAverageLengthHumidity()
    * @generated
    * @ordered
    */
-    protected static final int MOVING_AVERAGE_LENGTH_HUMIDITY_EDEFAULT = 100;
+  protected static final int MOVING_AVERAGE_LENGTH_HUMIDITY_EDEFAULT = 100;
 
     /**
    * The cached value of the '{@link #getMovingAverageLengthHumidity() <em>Moving Average Length Humidity</em>}' attribute.
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @see #getMovingAverageLengthHumidity()
    * @generated
    * @ordered
    */
-    protected int movingAverageLengthHumidity = MOVING_AVERAGE_LENGTH_HUMIDITY_EDEFAULT;
+  protected int movingAverageLengthHumidity = MOVING_AVERAGE_LENGTH_HUMIDITY_EDEFAULT;
 
     /**
    * The default value of the '{@link #getMovingAverageLengthTemperature() <em>Moving Average Length Temperature</em>}' attribute.
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @see #getMovingAverageLengthTemperature()
    * @generated
    * @ordered
    */
-    protected static final int MOVING_AVERAGE_LENGTH_TEMPERATURE_EDEFAULT = 100;
+  protected static final int MOVING_AVERAGE_LENGTH_TEMPERATURE_EDEFAULT = 100;
 
     /**
    * The cached value of the '{@link #getMovingAverageLengthTemperature() <em>Moving Average Length Temperature</em>}' attribute.
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @see #getMovingAverageLengthTemperature()
    * @generated
    * @ordered
    */
-    protected int movingAverageLengthTemperature = MOVING_AVERAGE_LENGTH_TEMPERATURE_EDEFAULT;
+  protected int movingAverageLengthTemperature = MOVING_AVERAGE_LENGTH_TEMPERATURE_EDEFAULT;
 
     /**
    * <!-- begin-user-doc -->
@@ -692,10 +692,10 @@ public class MBrickletHumidityV2Impl extends MinimalEObjectImpl.Container implem
 
     /**
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-    public NotificationChain basicSetTfConfig(HumidityV2Configuration newTfConfig, NotificationChain msgs) {
+  public NotificationChain basicSetTfConfig(HumidityV2Configuration newTfConfig, NotificationChain msgs) {
     HumidityV2Configuration oldTfConfig = tfConfig;
     tfConfig = newTfConfig;
     if (eNotificationRequired()) {
@@ -707,11 +707,10 @@ public class MBrickletHumidityV2Impl extends MinimalEObjectImpl.Container implem
 
     /**
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-    @Override
-    public void setTfConfig(HumidityV2Configuration newTfConfig) {
+  public void setTfConfig(HumidityV2Configuration newTfConfig) {
     if (newTfConfig != tfConfig) {
       NotificationChain msgs = null;
       if (tfConfig != null)
@@ -760,21 +759,19 @@ public class MBrickletHumidityV2Impl extends MinimalEObjectImpl.Container implem
 
     /**
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-    @Override
-    public int getMovingAverageLengthHumidity() {
+  public int getMovingAverageLengthHumidity() {
     return movingAverageLengthHumidity;
   }
 
     /**
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-    @Override
-    public void setMovingAverageLengthHumidity(int newMovingAverageLengthHumidity) {
+  public void setMovingAverageLengthHumidity(int newMovingAverageLengthHumidity) {
     int oldMovingAverageLengthHumidity = movingAverageLengthHumidity;
     movingAverageLengthHumidity = newMovingAverageLengthHumidity;
     if (eNotificationRequired())
@@ -783,21 +780,19 @@ public class MBrickletHumidityV2Impl extends MinimalEObjectImpl.Container implem
 
     /**
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-    @Override
-    public int getMovingAverageLengthTemperature() {
+  public int getMovingAverageLengthTemperature() {
     return movingAverageLengthTemperature;
   }
 
     /**
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-    @Override
-    public void setMovingAverageLengthTemperature(int newMovingAverageLengthTemperature) {
+  public void setMovingAverageLengthTemperature(int newMovingAverageLengthTemperature) {
     int oldMovingAverageLengthTemperature = movingAverageLengthTemperature;
     movingAverageLengthTemperature = newMovingAverageLengthTemperature;
     if (eNotificationRequired())
