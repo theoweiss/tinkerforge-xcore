@@ -7,9 +7,9 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: org.m1theo.tinkerforge.emf.internal.model,
- org.m1theo.tinkerforge.emf.internal.model.impl,
- org.m1theo.tinkerforge.emf.internal.model.util
+Export-Package: org.m1theo.tinkerforge.emf.model,
+ org.m1theo.tinkerforge.emf.model.impl,
+ org.m1theo.tinkerforge.emf.model.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.xtext.xbase.lib,

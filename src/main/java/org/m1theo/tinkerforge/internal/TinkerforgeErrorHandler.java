@@ -9,7 +9,7 @@
  */
 package org.m1theo.tinkerforge.internal;
 
-import org.m1theo.tinkerforge.emf.internal.model.MBaseDevice;
+import org.m1theo.tinkerforge.emf.model.MBaseDevice;
 import org.slf4j.Logger;
 
 public class TinkerforgeErrorHandler {

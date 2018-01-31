@@ -9,8 +9,8 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated tinkerforge -->
       <package
-            uri="org.m1theo.tinkerforge.emf.internal.model"
-            class="org.m1theo.tinkerforge.emf.internal.model.ModelPackage"
+            uri="org.m1theo.tinkerforge.emf.model"
+            class="org.m1theo.tinkerforge.emf.model.ModelPackage"
             genModel="src/main/resources/tinkerforge.xcore"/>
    </extension>
 
