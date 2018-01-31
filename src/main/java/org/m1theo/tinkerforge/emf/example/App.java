@@ -200,7 +200,7 @@ public class App {
   }
 
   private static void initializeTFDevices(Notification notification) {
-    logger.trace("notifier {}", notification.getNotifier());
+    logger.trace("initialize: notifier {}", notification.getNotifier());
     if (notification.getNotifier() instanceof MBrickd) {
       logger.debug("notifier is Brickd");
       int featureID = notification.getFeatureID(MBrickd.class);
@@ -218,27 +218,33 @@ public class App {
             MBaseDevice mDevice = (MBaseDevice) notification.getOldValue();
             String uid = mDevice.getUid();
             String subId = null;
+            // TODO remove from model?
+            mDevice.disable();
           }
         } else {
-          logger.debug("{} Notifier: unknown feature {}", notification.getFeature());
+          logger.debug("unknown notification from mdevices {}", notification);
         }
-      } else if (notification.getNotifier() instanceof MSubDeviceHolder<?>) {
-        int featureID1 = notification.getFeatureID(MSubDeviceHolder.class);
-        if (featureID1 == ModelPackage.MSUB_DEVICE_HOLDER__MSUBDEVICES) {
-          logger.debug("MSubdevices Notifier called");
-          if (notification.getEventType() == Notification.ADD) {
-            MSubDevice<?> mSubDevice = (MSubDevice<?>) notification.getNewValue();
-            addMDevice(mSubDevice, mSubDevice.getUid(), mSubDevice.getSubId());
 
-          }
-          if (notification.getEventType() == Notification.REMOVE) {
-            logger.debug("{} remove notification from subdeviceholder");
-            logger.debug("{} Notifier: remove called for MSubDevice");
-            MSubDevice<?> mDevice = (MSubDevice<?>) notification.getOldValue();
-            String uid = mDevice.getUid();
-            String subId = mDevice.getSubId();
-            // TODO
-          }
+      } else {
+        logger.debug("{} Notifier: unknown feature {}", notification.getFeature());
+      }
+    } else if (notification.getNotifier() instanceof MSubDeviceHolder<?>) {
+      logger.trace("notification from subDeviceHolder");
+      int featureID1 = notification.getFeatureID(MSubDeviceHolder.class);
+      if (featureID1 == ModelPackage.MSUB_DEVICE_HOLDER__MSUBDEVICES) {
+        logger.debug("MSubdevices Notifier called");
+        if (notification.getEventType() == Notification.ADD) {
+          MSubDevice<?> mSubDevice = (MSubDevice<?>) notification.getNewValue();
+          addMDevice(mSubDevice, mSubDevice.getUid(), mSubDevice.getSubId());
+        }
+        if (notification.getEventType() == Notification.REMOVE) {
+          logger.debug("remove notification from subdeviceholder");
+          logger.debug("Notifier: remove called for MSubDevice");
+          MSubDevice<?> mDevice = (MSubDevice<?>) notification.getOldValue();
+          String uid = mDevice.getUid();
+          String subId = mDevice.getSubId();
+          // TODO remove from model?
+          mDevice.disable();
         }
       }
     } else {
@@ -353,7 +359,7 @@ public class App {
     }
     // TODO hier muss noch was fuer die dimmer und rollershutter rein
     else {
-      logger.trace("{} ignored notifier {}", notification.getNotifier());
+      logger.trace("ignored notifier {}", notification.getNotifier());
     }
   }
 

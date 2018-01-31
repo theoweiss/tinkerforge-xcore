@@ -49,7 +49,7 @@ dependencies {
 
 license {
     header rootProject.file('HEADER.txt')
-    skipExistingHeaders false
+    skipExistingHeaders true
 }
 
 run {

@@ -577,28 +577,30 @@ public class MHumidityV2HumidityImpl extends MinimalEObjectImpl.Container implem
      * <!-- end-user-doc -->
    * @generated NOT
    */
-    public void enable() {
-      if (tfConfig != null) {
-        if (tfConfig.eIsSet(tfConfig.eClass().getEStructuralFeature("threshold"))) {
-            logger.debug("threshold {}", tfConfig.getThreshold());
-            setThreshold(tfConfig.getThreshold());
-        }
-        if (tfConfig.eIsSet(tfConfig.eClass().getEStructuralFeature("callbackPeriod"))) {
-            logger.debug("callbackPeriod {}", tfConfig.getCallbackPeriod());
-            setCallbackPeriod(tfConfig.getCallbackPeriod());
-        }
-    }
-      tinkerforgeDevice = getMbrick().getTinkerforgeDevice();
-      try {
-        tinkerforgeDevice.setHumidityCallbackConfiguration(getCallbackPeriod(), true, 'x', 0, 0);
-        listener = new HumidityListener();
-        tinkerforgeDevice.addHumidityListener(listener);
-        fetchSensorValue();
-      } catch (TimeoutException e) {
-        TinkerforgeErrorHandler.handleError(this, TinkerforgeErrorHandler.TF_TIMEOUT_EXCEPTION, e);
-      } catch (NotConnectedException e) {
-        TinkerforgeErrorHandler.handleError(this, TinkerforgeErrorHandler.TF_NOT_CONNECTION_EXCEPTION, e);
+  public void enable() {
+    if (tfConfig != null) {
+      if (tfConfig.eIsSet(tfConfig.eClass().getEStructuralFeature("threshold"))) {
+        logger.debug("threshold {}", tfConfig.getThreshold());
+        setThreshold(tfConfig.getThreshold());
       }
+      if (tfConfig.eIsSet(tfConfig.eClass().getEStructuralFeature("callbackPeriod"))) {
+        logger.debug("callbackPeriod {}", tfConfig.getCallbackPeriod());
+        setCallbackPeriod(tfConfig.getCallbackPeriod());
+      }
+    }
+    tinkerforgeDevice = getMbrick().getTinkerforgeDevice();
+    try {
+      tinkerforgeDevice.setHumidityCallbackConfiguration(getCallbackPeriod(), true, 'x', 0, 0);
+      listener = new HumidityListener();
+      logger.debug("enabling humidityListener CallbackPeriod is {}, Threshold is {}", getCallbackPeriod(),
+          getThreshold());
+      tinkerforgeDevice.addHumidityListener(listener);
+      fetchSensorValue();
+    } catch (TimeoutException e) {
+      TinkerforgeErrorHandler.handleError(this, TinkerforgeErrorHandler.TF_TIMEOUT_EXCEPTION, e);
+    } catch (NotConnectedException e) {
+      TinkerforgeErrorHandler.handleError(this, TinkerforgeErrorHandler.TF_NOT_CONNECTION_EXCEPTION, e);
+    }
   }
 
     private class HumidityListener implements BrickletHumidityV2.HumidityListener {
@@ -622,6 +624,7 @@ public class MHumidityV2HumidityImpl extends MinimalEObjectImpl.Container implem
    * @generated NOT
    */
     public void disable() {
+      logger.trace("disable called");
       if (listener != null) {
         tinkerforgeDevice.removeHumidityListener(listener);
       }

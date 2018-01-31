@@ -36,6 +36,7 @@ import org.m1theo.tinkerforge.emf.internal.model.MSubDeviceHolder;
 import org.m1theo.tinkerforge.emf.internal.model.MTFConfigConsumer;
 import org.m1theo.tinkerforge.emf.internal.model.ModelFactory;
 import org.m1theo.tinkerforge.emf.internal.model.ModelPackage;
+import org.m1theo.tinkerforge.internal.LoggerConstants;
 import org.m1theo.tinkerforge.internal.TinkerforgeErrorHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -810,12 +811,14 @@ public class MBrickletHumidityV2Impl extends MinimalEObjectImpl.Container implem
         ModelFactory factory = ModelFactory.eINSTANCE;
         MHumidityV2Humidity humidity = factory.createMHumidityV2Humidity();
         humidity.setUid(getUid());
+        logger.debug("{} addSubDevice {}", LoggerConstants.TFINIT, "humidity");
         humidity.setSubId("humidity");
         humidity.init();
         humidity.setMbrick(this);
 
         MHumidityV2Temperature temperature = factory.createMHumidityV2Temperature();
         temperature.setUid(getUid());
+        logger.debug("{} addSubDevice {}", LoggerConstants.TFINIT, "temperature");
         temperature.setSubId("temperature");
         temperature.init();
         temperature.setMbrick(this);
@@ -878,7 +881,8 @@ public class MBrickletHumidityV2Impl extends MinimalEObjectImpl.Container implem
      */
     @Override
     public void disable() {
-        tinkerforgeDevice = null;
+      logger.trace("disable called");
+      tinkerforgeDevice = null;
     }
 
     /**

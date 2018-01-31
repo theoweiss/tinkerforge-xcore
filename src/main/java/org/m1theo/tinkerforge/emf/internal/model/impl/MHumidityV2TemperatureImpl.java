@@ -605,6 +605,7 @@ public class MHumidityV2TemperatureImpl extends MinimalEObjectImpl.Container imp
    * @generated NOT
    */
     public void disable() {
+      logger.trace("disable called");
       if (listener != null) {
         tinkerforgeDevice.removeTemperatureListener(listener);
       }
