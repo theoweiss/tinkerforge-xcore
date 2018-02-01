@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.m1theo.tinkerforge.internal.config.DeviceOptions;
+import org.m1theo.tinkerforge.config.DeviceOptions;
 import org.m1theo.tinkerforge.types.DecimalValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

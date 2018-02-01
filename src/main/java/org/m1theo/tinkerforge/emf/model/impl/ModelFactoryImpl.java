@@ -75,8 +75,8 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.m1theo.tinkerforge.config.DeviceOptions;
 import org.m1theo.tinkerforge.emf.model.*;
-import org.m1theo.tinkerforge.internal.config.DeviceOptions;
 import org.m1theo.tinkerforge.types.DecimalValue;
 import org.m1theo.tinkerforge.types.DirectionValue;
 import org.m1theo.tinkerforge.types.HSBValue;

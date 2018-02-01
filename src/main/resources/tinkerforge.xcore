@@ -73,7 +73,7 @@ import com.tinkerforge.BrickStepper
 import com.tinkerforge.BrickletAnalogOutV2
 import com.tinkerforge.BrickletHumidityV2
 import java.math.BigDecimal
-import org.m1theo.tinkerforge.internal.config.DeviceOptions
+import org.m1theo.tinkerforge.config.DeviceOptions
 import org.m1theo.tinkerforge.types.UpDownValue
 import org.m1theo.tinkerforge.types.IncreaseDecreaseValue
 import org.m1theo.tinkerforge.types.HighLowValue

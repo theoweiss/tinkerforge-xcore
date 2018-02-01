@@ -27676,7 +27676,7 @@ public interface ModelPackage extends EPackage {
    * The meta object id for the '<em>Device Options</em>' data type.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @see org.m1theo.tinkerforge.internal.config.DeviceOptions
+   * @see org.m1theo.tinkerforge.config.DeviceOptions
    * @see org.m1theo.tinkerforge.emf.model.impl.ModelPackageImpl#getDeviceOptions()
    * @generated
    */
@@ -28292,11 +28292,11 @@ public interface ModelPackage extends EPackage {
 	EClass getProgrammableSwitchActor();
 
 	/**
-   * Returns the meta object for the '{@link org.m1theo.tinkerforge.emf.model.ProgrammableSwitchActor#turnSwitch(org.m1theo.tinkerforge.types.OnOffValue, org.m1theo.tinkerforge.internal.config.DeviceOptions) <em>Turn Switch</em>}' operation.
+   * Returns the meta object for the '{@link org.m1theo.tinkerforge.emf.model.ProgrammableSwitchActor#turnSwitch(org.m1theo.tinkerforge.types.OnOffValue, org.m1theo.tinkerforge.config.DeviceOptions) <em>Turn Switch</em>}' operation.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the '<em>Turn Switch</em>' operation.
-   * @see org.m1theo.tinkerforge.emf.model.ProgrammableSwitchActor#turnSwitch(org.m1theo.tinkerforge.types.OnOffValue, org.m1theo.tinkerforge.internal.config.DeviceOptions)
+   * @see org.m1theo.tinkerforge.emf.model.ProgrammableSwitchActor#turnSwitch(org.m1theo.tinkerforge.types.OnOffValue, org.m1theo.tinkerforge.config.DeviceOptions)
    * @generated
    */
   EOperation getProgrammableSwitchActor__TurnSwitch__OnOffValue_DeviceOptions();
@@ -28458,11 +28458,11 @@ public interface ModelPackage extends EPackage {
 	EClass getProgrammableActor();
 
 	/**
-   * Returns the meta object for the '{@link org.m1theo.tinkerforge.emf.model.ProgrammableActor#action(org.m1theo.tinkerforge.internal.config.DeviceOptions) <em>Action</em>}' operation.
+   * Returns the meta object for the '{@link org.m1theo.tinkerforge.emf.model.ProgrammableActor#action(org.m1theo.tinkerforge.config.DeviceOptions) <em>Action</em>}' operation.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the '<em>Action</em>' operation.
-   * @see org.m1theo.tinkerforge.emf.model.ProgrammableActor#action(org.m1theo.tinkerforge.internal.config.DeviceOptions)
+   * @see org.m1theo.tinkerforge.emf.model.ProgrammableActor#action(org.m1theo.tinkerforge.config.DeviceOptions)
    * @generated
    */
   EOperation getProgrammableActor__Action__DeviceOptions();
@@ -28601,11 +28601,11 @@ public interface ModelPackage extends EPackage {
 	EClass getProgrammableColorActor();
 
 	/**
-   * Returns the meta object for the '{@link org.m1theo.tinkerforge.emf.model.ProgrammableColorActor#setSelectedColor(org.m1theo.tinkerforge.types.HSBValue, org.m1theo.tinkerforge.internal.config.DeviceOptions) <em>Set Selected Color</em>}' operation.
+   * Returns the meta object for the '{@link org.m1theo.tinkerforge.emf.model.ProgrammableColorActor#setSelectedColor(org.m1theo.tinkerforge.types.HSBValue, org.m1theo.tinkerforge.config.DeviceOptions) <em>Set Selected Color</em>}' operation.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the '<em>Set Selected Color</em>' operation.
-   * @see org.m1theo.tinkerforge.emf.model.ProgrammableColorActor#setSelectedColor(org.m1theo.tinkerforge.types.HSBValue, org.m1theo.tinkerforge.internal.config.DeviceOptions)
+   * @see org.m1theo.tinkerforge.emf.model.ProgrammableColorActor#setSelectedColor(org.m1theo.tinkerforge.types.HSBValue, org.m1theo.tinkerforge.config.DeviceOptions)
    * @generated
    */
   EOperation getProgrammableColorActor__SetSelectedColor__HSBValue_DeviceOptions();
@@ -28652,11 +28652,11 @@ public interface ModelPackage extends EPackage {
 	EAttribute getMoveActor_Direction();
 
 	/**
-   * Returns the meta object for the '{@link org.m1theo.tinkerforge.emf.model.MoveActor#move(org.m1theo.tinkerforge.types.UpDownValue, org.m1theo.tinkerforge.internal.config.DeviceOptions) <em>Move</em>}' operation.
+   * Returns the meta object for the '{@link org.m1theo.tinkerforge.emf.model.MoveActor#move(org.m1theo.tinkerforge.types.UpDownValue, org.m1theo.tinkerforge.config.DeviceOptions) <em>Move</em>}' operation.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the '<em>Move</em>' operation.
-   * @see org.m1theo.tinkerforge.emf.model.MoveActor#move(org.m1theo.tinkerforge.types.UpDownValue, org.m1theo.tinkerforge.internal.config.DeviceOptions)
+   * @see org.m1theo.tinkerforge.emf.model.MoveActor#move(org.m1theo.tinkerforge.types.UpDownValue, org.m1theo.tinkerforge.config.DeviceOptions)
    * @generated
    */
   EOperation getMoveActor__Move__UpDownValue_DeviceOptions();
@@ -28672,11 +28672,11 @@ public interface ModelPackage extends EPackage {
 	EOperation getMoveActor__Stop();
 
 	/**
-   * Returns the meta object for the '{@link org.m1theo.tinkerforge.emf.model.MoveActor#moveon(org.m1theo.tinkerforge.internal.config.DeviceOptions) <em>Moveon</em>}' operation.
+   * Returns the meta object for the '{@link org.m1theo.tinkerforge.emf.model.MoveActor#moveon(org.m1theo.tinkerforge.config.DeviceOptions) <em>Moveon</em>}' operation.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the '<em>Moveon</em>' operation.
-   * @see org.m1theo.tinkerforge.emf.model.MoveActor#moveon(org.m1theo.tinkerforge.internal.config.DeviceOptions)
+   * @see org.m1theo.tinkerforge.emf.model.MoveActor#moveon(org.m1theo.tinkerforge.config.DeviceOptions)
    * @generated
    */
   EOperation getMoveActor__Moveon__DeviceOptions();
@@ -28714,11 +28714,11 @@ public interface ModelPackage extends EPackage {
 	EAttribute getDimmableActor_MaxValue();
 
 	/**
-   * Returns the meta object for the '{@link org.m1theo.tinkerforge.emf.model.DimmableActor#dimm(org.m1theo.tinkerforge.types.IncreaseDecreaseValue, org.m1theo.tinkerforge.internal.config.DeviceOptions) <em>Dimm</em>}' operation.
+   * Returns the meta object for the '{@link org.m1theo.tinkerforge.emf.model.DimmableActor#dimm(org.m1theo.tinkerforge.types.IncreaseDecreaseValue, org.m1theo.tinkerforge.config.DeviceOptions) <em>Dimm</em>}' operation.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the '<em>Dimm</em>' operation.
-   * @see org.m1theo.tinkerforge.emf.model.DimmableActor#dimm(org.m1theo.tinkerforge.types.IncreaseDecreaseValue, org.m1theo.tinkerforge.internal.config.DeviceOptions)
+   * @see org.m1theo.tinkerforge.emf.model.DimmableActor#dimm(org.m1theo.tinkerforge.types.IncreaseDecreaseValue, org.m1theo.tinkerforge.config.DeviceOptions)
    * @generated
    */
   EOperation getDimmableActor__Dimm__IncreaseDecreaseValue_DeviceOptions();
@@ -28745,11 +28745,11 @@ public interface ModelPackage extends EPackage {
 	EAttribute getPercentTypeActor_PercentValue();
 
 	/**
-   * Returns the meta object for the '{@link org.m1theo.tinkerforge.emf.model.PercentTypeActor#setValue(org.m1theo.tinkerforge.types.PercentValue, org.m1theo.tinkerforge.internal.config.DeviceOptions) <em>Set Value</em>}' operation.
+   * Returns the meta object for the '{@link org.m1theo.tinkerforge.emf.model.PercentTypeActor#setValue(org.m1theo.tinkerforge.types.PercentValue, org.m1theo.tinkerforge.config.DeviceOptions) <em>Set Value</em>}' operation.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the '<em>Set Value</em>' operation.
-   * @see org.m1theo.tinkerforge.emf.model.PercentTypeActor#setValue(org.m1theo.tinkerforge.types.PercentValue, org.m1theo.tinkerforge.internal.config.DeviceOptions)
+   * @see org.m1theo.tinkerforge.emf.model.PercentTypeActor#setValue(org.m1theo.tinkerforge.types.PercentValue, org.m1theo.tinkerforge.config.DeviceOptions)
    * @generated
    */
   EOperation getPercentTypeActor__SetValue__PercentValue_DeviceOptions();
@@ -28765,11 +28765,11 @@ public interface ModelPackage extends EPackage {
 	EClass getSetPointActor();
 
 	/**
-   * Returns the meta object for the '{@link org.m1theo.tinkerforge.emf.model.SetPointActor#setValue(java.math.BigDecimal, org.m1theo.tinkerforge.internal.config.DeviceOptions) <em>Set Value</em>}' operation.
+   * Returns the meta object for the '{@link org.m1theo.tinkerforge.emf.model.SetPointActor#setValue(java.math.BigDecimal, org.m1theo.tinkerforge.config.DeviceOptions) <em>Set Value</em>}' operation.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the '<em>Set Value</em>' operation.
-   * @see org.m1theo.tinkerforge.emf.model.SetPointActor#setValue(java.math.BigDecimal, org.m1theo.tinkerforge.internal.config.DeviceOptions)
+   * @see org.m1theo.tinkerforge.emf.model.SetPointActor#setValue(java.math.BigDecimal, org.m1theo.tinkerforge.config.DeviceOptions)
    * @generated
    */
   EOperation getSetPointActor__SetValue__BigDecimal_DeviceOptions();
@@ -35512,12 +35512,12 @@ public interface ModelPackage extends EPackage {
 	EDataType getPercentValue();
 
 	/**
-   * Returns the meta object for data type '{@link org.m1theo.tinkerforge.internal.config.DeviceOptions <em>Device Options</em>}'.
+   * Returns the meta object for data type '{@link org.m1theo.tinkerforge.config.DeviceOptions <em>Device Options</em>}'.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @return the meta object for data type '<em>Device Options</em>'.
-   * @see org.m1theo.tinkerforge.internal.config.DeviceOptions
-   * @model instanceClass="org.m1theo.tinkerforge.internal.config.DeviceOptions"
+   * @see org.m1theo.tinkerforge.config.DeviceOptions
+   * @model instanceClass="org.m1theo.tinkerforge.config.DeviceOptions"
    * @generated
    */
 	EDataType getDeviceOptions();

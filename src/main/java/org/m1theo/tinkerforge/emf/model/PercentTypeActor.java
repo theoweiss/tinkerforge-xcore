@@ -12,7 +12,7 @@
 package org.m1theo.tinkerforge.emf.model;
 
 import org.eclipse.emf.ecore.EObject;
-import org.m1theo.tinkerforge.internal.config.DeviceOptions;
+import org.m1theo.tinkerforge.config.DeviceOptions;
 import org.m1theo.tinkerforge.types.PercentValue;
 
 /**

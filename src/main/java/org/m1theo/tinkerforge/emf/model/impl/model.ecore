@@ -69,7 +69,7 @@
   <eClassifiers xsi:type="ecore:EDataType" name="TinkerBrickletCO2" instanceClassName="com.tinkerforge.BrickletCO2"/>
   <eClassifiers xsi:type="ecore:EDataType" name="TinkerBrickletAnalogOutV2" instanceClassName="com.tinkerforge.BrickletAnalogOutV2"/>
   <eClassifiers xsi:type="ecore:EDataType" name="PercentValue" instanceClassName="org.m1theo.tinkerforge.types.PercentValue"/>
-  <eClassifiers xsi:type="ecore:EDataType" name="DeviceOptions" instanceClassName="org.m1theo.tinkerforge.internal.config.DeviceOptions"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="DeviceOptions" instanceClassName="org.m1theo.tinkerforge.config.DeviceOptions"/>
   <eClassifiers xsi:type="ecore:EDataType" name="DirectionValue" instanceClassName="org.m1theo.tinkerforge.types.DirectionValue"/>
   <eClassifiers xsi:type="ecore:EDataType" name="UpDownValue" instanceClassName="org.m1theo.tinkerforge.types.UpDownValue"/>
   <eClassifiers xsi:type="ecore:EDataType" name="IncreaseDecreaseValue" instanceClassName="org.m1theo.tinkerforge.types.IncreaseDecreaseValue"/>
