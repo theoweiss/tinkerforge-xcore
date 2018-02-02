@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.m1theo.tinkerforge.config.ConfigurationException;
 import org.m1theo.tinkerforge.config.ConfigurationHandler;
 import org.m1theo.tinkerforge.config.DeviceOptions;
+import org.m1theo.tinkerforge.emf.client.Constants;
 import org.m1theo.tinkerforge.emf.model.ColorActor;
 import org.m1theo.tinkerforge.emf.model.DigitalActor;
 import org.m1theo.tinkerforge.emf.model.DimmableActor;
@@ -71,8 +72,6 @@ public class App {
   private static ModelFactory modelFactory;
   private static Ecosystem tinkerforgeEcosystem;
   private static AtomicBoolean isConnected = new AtomicBoolean(false);
-  private static final int BRICKD_DEFAULT_PORT = 4223;
-  private static final String CONFIG_KEY_HOSTS = "hosts";
   private static OHConfig ohConfig;
 
   public static void main(String[] args) throws FileNotFoundException, InterruptedException {
@@ -99,7 +98,7 @@ public class App {
   public static void start(Map<String, ?> config) throws ConfigurationException {
     logger.debug("start called");
     if (config != null) {
-      String cfgHostsLine = (String) config.get(CONFIG_KEY_HOSTS);
+      String cfgHostsLine = (String) config.get(Constants.CONFIG_KEY_HOSTS);
       if (cfgHostsLine == null) {
         throw new ConfigurationException("no hosts configured");
       }
@@ -131,10 +130,10 @@ public class App {
         if (!cfgHostAndPort[1].equals("")) {
           port = Integer.parseInt(cfgHostAndPort[1]);
         } else {
-          port = BRICKD_DEFAULT_PORT;
+          port = Constants.BRICKD_DEFAULT_PORT;
         }
       } else {
-        port = BRICKD_DEFAULT_PORT;
+        port = Constants.BRICKD_DEFAULT_PORT;
       }
       if (cfgHostAndPort.length == 3) {
         authkey = cfgHostAndPort[2];

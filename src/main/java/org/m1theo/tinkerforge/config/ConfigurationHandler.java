@@ -77,7 +77,6 @@ import org.m1theo.tinkerforge.emf.model.TFAnalogInConfiguration;
 import org.m1theo.tinkerforge.emf.model.TFAnalogInV2Configuration;
 import org.m1theo.tinkerforge.emf.model.TFBaseConfiguration;
 import org.m1theo.tinkerforge.emf.model.TFBrickDCConfiguration;
-import org.m1theo.tinkerforge.emf.model.TFConfig;
 import org.m1theo.tinkerforge.emf.model.TFDistanceUSBrickletConfiguration;
 import org.m1theo.tinkerforge.emf.model.TFIOActorConfiguration;
 import org.m1theo.tinkerforge.emf.model.TFIOSensorConfiguration;
