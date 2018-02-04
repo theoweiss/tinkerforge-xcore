@@ -1,7 +1,9 @@
 package org.m1theo.tinkerforge.emf.client.impl;
 
+import java.util.List;
 import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.m1theo.tinkerforge.config.ConfigurationHandler;
 import org.m1theo.tinkerforge.config.DeviceOptions;
@@ -233,4 +235,8 @@ public class ClientImpl implements Client {
     return ids;
   }
 
+  @Override
+  public List<MBaseDevice> getDevices() {
+    return ecosystem.getDevices();
+  }
 }

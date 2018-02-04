@@ -97,6 +97,14 @@ public interface Ecosystem extends EObject {
 
 	/**
    * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @model kind="operation" unique="false"
+   * @generated
+   */
+  EList<MBaseDevice> getDevices();
+
+  /**
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @model unique="false" uidUnique="false" genericIdUnique="false"
    * @generated

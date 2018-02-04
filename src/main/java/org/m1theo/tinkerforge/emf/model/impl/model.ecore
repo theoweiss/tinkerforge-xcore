@@ -75,16 +75,17 @@
   <eClassifiers xsi:type="ecore:EDataType" name="IncreaseDecreaseValue" instanceClassName="org.m1theo.tinkerforge.types.IncreaseDecreaseValue"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Enum" instanceClassName="java.lang.Enum"/>
   <eClassifiers xsi:type="ecore:EClass" name="Ecosystem">
-    <eOperations name="getBrickd" unique="false" eType="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickd">
+    <eOperations name="getBrickd" unique="false" eType="#//MBrickd">
       <eParameters name="host" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="port" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
-    <eOperations name="getDevice" unique="false" eType="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBaseDevice">
+    <eOperations name="getDevice" unique="false" eType="#//MBaseDevice">
       <eParameters name="uid" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="subId" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
+    <eOperations name="getDevices" unique="false" upperBound="-1" eType="#//MBaseDevice"/>
     <eOperations name="getDevices4GenericId" unique="false" upperBound="-1">
-      <eGenericType eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
+      <eGenericType eClassifier="#//MSubDevice">
         <eTypeArguments/>
       </eGenericType>
       <eParameters name="uid" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -92,22 +93,21 @@
     </eOperations>
     <eOperations name="disconnect" unique="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="logger" unique="false"
-        eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MLogger"/>
+        eType="#//MLogger"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mbrickds" upperBound="-1"
-        eType="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickd" containment="true"
-        resolveProxies="false" eOpposite="org.m1theo.tinkerforge.emf.model#//MBrickd/ecosystem"/>
+        eType="#//MBrickd" containment="true" resolveProxies="false" eOpposite="#//MBrickd/ecosystem"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickd">
     <eOperations name="connect" unique="false"/>
     <eOperations name="disconnect" unique="false"/>
     <eOperations name="init" unique="false"/>
-    <eOperations name="getDevice" unique="false" eType="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBaseDevice">
+    <eOperations name="getDevice" unique="false" eType="#//MBaseDevice">
       <eParameters name="uid" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="logger" unique="false"
-        eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MLogger"/>
+        eType="#//MLogger"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ipConnection" unique="false"
-        eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MIPConnection"/>
+        eType="#//MIPConnection"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="host" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="localhost"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
@@ -115,23 +115,23 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="authkey" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isConnected" unique="false"
-        eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//DigitalValue"/>
+        eType="#//DigitalValue"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="autoReconnect" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="reconnected" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="connectedCounter" unique="false"
-        eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue" defaultValueLiteral="0"/>
+        eType="#//MDecimalValue" defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeout" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="2500"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mdevices" upperBound="-1"
-        containment="true" resolveProxies="false" eOpposite="org.m1theo.tinkerforge.emf.model#//MDevice/brickd">
-      <eGenericType eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
+        containment="true" resolveProxies="false" eOpposite="#//MDevice/brickd">
+      <eGenericType eClassifier="#//MDevice">
         <eTypeArguments/>
       </eGenericType>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ecosystem" eType="ecore:EClass org.m1theo.tinkerforge.emf.model#//Ecosystem"
-        eOpposite="org.m1theo.tinkerforge.emf.model#//Ecosystem/mbrickds"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ecosystem" eType="#//Ecosystem"
+        eOpposite="#//Ecosystem/mbrickds"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SubDeviceAdmin" abstract="true" interface="true">
     <eOperations name="addSubDevice" unique="false">
@@ -143,7 +143,7 @@
     <eTypeParameters name="TFC"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tfConfig" containment="true"
         resolveProxies="false">
-      <eGenericType eTypeParameter="org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer/TFC"/>
+      <eGenericType eTypeParameter="#//MTFConfigConsumer/TFC"/>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBaseDevice" abstract="true" interface="true">
@@ -151,23 +151,23 @@
     <eOperations name="enable" unique="false"/>
     <eOperations name="disable" unique="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="logger" unique="false"
-        eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MLogger"/>
+        eType="#//MLogger"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="poll" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabledA" unique="false"
-        eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MAtomicBoolean"/>
+        eType="#//MAtomicBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MDevice" abstract="true" interface="true"
-      eSuperTypes="org.m1theo.tinkerforge.emf.model#//MBaseDevice">
+      eSuperTypes="#//MBaseDevice">
     <eTypeParameters name="TF">
-      <eBounds eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MTinkerforgeDevice"/>
+      <eBounds eClassifier="#//MTinkerforgeDevice"/>
     </eTypeParameters>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tinkerforgeDevice" unique="false">
-      <eGenericType eTypeParameter="org.m1theo.tinkerforge.emf.model#//MDevice/TF"/>
+      <eGenericType eTypeParameter="#//MDevice/TF"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ipConnection" unique="false"
-        eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MIPConnection"/>
+        eType="#//MIPConnection"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="connectedUid" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" unique="false"
@@ -175,62 +175,62 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceIdentifier" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="brickd" eType="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickd"
-        eOpposite="org.m1theo.tinkerforge.emf.model#//MBrickd/mdevices"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="brickd" eType="#//MBrickd"
+        eOpposite="#//MBrickd/mdevices"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MSubDeviceHolder" abstract="true" interface="true">
     <eTypeParameters name="S">
-      <eBounds eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
+      <eBounds eClassifier="#//MSubDevice">
         <eTypeArguments/>
       </eBounds>
     </eTypeParameters>
     <eOperations name="initSubDevices" unique="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="msubdevices" upperBound="-1"
-        containment="true" resolveProxies="false" eOpposite="org.m1theo.tinkerforge.emf.model#//MSubDevice/mbrick">
-      <eGenericType eTypeParameter="org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder/S"/>
+        containment="true" resolveProxies="false" eOpposite="#//MSubDevice/mbrick">
+      <eGenericType eTypeParameter="#//MSubDeviceHolder/S"/>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MActor" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="SwitchSensor" abstract="true" interface="true">
     <eOperations name="fetchSwitchState" unique="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="switchState" unique="false"
-        eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//SwitchState"/>
+        eType="#//SwitchState"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MSwitchActor" abstract="true" interface="true"
-      eSuperTypes="org.m1theo.tinkerforge.emf.model#//SwitchSensor">
+      eSuperTypes="#//SwitchSensor">
     <eOperations name="turnSwitch" unique="false">
-      <eParameters name="state" unique="false" eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//SwitchState"/>
+      <eParameters name="state" unique="false" eType="#//SwitchState"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProgrammableSwitchActor" abstract="true"
-      interface="true" eSuperTypes="org.m1theo.tinkerforge.emf.model#//SwitchSensor">
+      interface="true" eSuperTypes="#//SwitchSensor">
     <eOperations name="turnSwitch" unique="false">
-      <eParameters name="state" unique="false" eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//SwitchState"/>
-      <eParameters name="opts" unique="false" eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//DeviceOptions"/>
+      <eParameters name="state" unique="false" eType="#//SwitchState"/>
+      <eParameters name="opts" unique="false" eType="#//DeviceOptions"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MInSwitchActor" abstract="true" interface="true"
-      eSuperTypes="org.m1theo.tinkerforge.emf.model#//MSwitchActor"/>
+      eSuperTypes="#//MSwitchActor"/>
   <eClassifiers xsi:type="ecore:EClass" name="GenericDevice" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="genericDeviceId" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IODevice" abstract="true" interface="true">
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickletIO16"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MBrickletIO16"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//GenericDevice"/>
+    <eGenericSuperTypes eClassifier="#//GenericDevice"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MSubDevice" abstract="true" interface="true"
-      eSuperTypes="org.m1theo.tinkerforge.emf.model#//MBaseDevice">
+      eSuperTypes="#//MBaseDevice">
     <eTypeParameters name="B">
-      <eBounds eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
+      <eBounds eClassifier="#//MSubDeviceHolder">
         <eTypeArguments/>
       </eBounds>
     </eTypeParameters>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="subId" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mbrick" eOpposite="org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder/msubdevices">
-      <eGenericType eTypeParameter="org.m1theo.tinkerforge.emf.model#//MSubDevice/B"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mbrick" eOpposite="#//MSubDeviceHolder/msubdevices">
+      <eGenericType eTypeParameter="#//MSubDevice/B"/>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CallbackListener" abstract="true" interface="true">
@@ -243,16 +243,16 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MSensor" abstract="true" interface="true">
     <eTypeParameters name="DeviceValue">
-      <eBounds eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MTinkerforgeValue"/>
+      <eBounds eClassifier="#//MTinkerforgeValue"/>
     </eTypeParameters>
     <eOperations name="fetchSensorValue" unique="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sensorValue" unique="false">
-      <eGenericType eTypeParameter="org.m1theo.tinkerforge.emf.model#//MSensor/DeviceValue"/>
+      <eGenericType eTypeParameter="#//MSensor/DeviceValue"/>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProgrammableActor" abstract="true" interface="true">
     <eOperations name="action" unique="false">
-      <eParameters name="opts" unique="false" eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//DeviceOptions"/>
+      <eParameters name="opts" unique="false" eType="#//DeviceOptions"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MTextActor" abstract="true" interface="true">
@@ -262,17 +262,17 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MLCDSubDevice" abstract="true" interface="true">
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickletLCD20x4"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MBrickletLCD20x4"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DigitalActor" abstract="true" interface="true">
     <eOperations name="turnDigital" unique="false">
-      <eParameters name="digitalState" unique="false" eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//DigitalValue"/>
+      <eParameters name="digitalState" unique="false" eType="#//DigitalValue"/>
     </eOperations>
     <eOperations name="fetchDigitalValue" unique="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="digitalState" unique="false"
-        eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//DigitalValue"/>
+        eType="#//DigitalValue"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NumberActor" abstract="true" interface="true">
     <eOperations name="setNumber" unique="false">
@@ -280,106 +280,106 @@
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColorActor" abstract="true" interface="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" unique="false" eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//HSBValue"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" unique="false" eType="#//HSBValue"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProgrammableColorActor" abstract="true"
-      interface="true" eSuperTypes="org.m1theo.tinkerforge.emf.model#//ColorActor">
+      interface="true" eSuperTypes="#//ColorActor">
     <eOperations name="setSelectedColor" unique="false">
-      <eParameters name="color" unique="false" eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//HSBValue"/>
-      <eParameters name="opts" unique="false" eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//DeviceOptions"/>
+      <eParameters name="color" unique="false" eType="#//HSBValue"/>
+      <eParameters name="opts" unique="false" eType="#//DeviceOptions"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SimpleColorActor" abstract="true" interface="true"
-      eSuperTypes="org.m1theo.tinkerforge.emf.model#//ColorActor">
+      eSuperTypes="#//ColorActor">
     <eOperations name="setSelectedColor" unique="false">
-      <eParameters name="color" unique="false" eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//HSBValue"/>
+      <eParameters name="color" unique="false" eType="#//HSBValue"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MoveActor" abstract="true" interface="true">
     <eOperations name="move" unique="false">
-      <eParameters name="direction" unique="false" eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//UpDownValue"/>
-      <eParameters name="opts" unique="false" eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//DeviceOptions"/>
+      <eParameters name="direction" unique="false" eType="#//UpDownValue"/>
+      <eParameters name="opts" unique="false" eType="#//DeviceOptions"/>
     </eOperations>
     <eOperations name="stop" unique="false"/>
     <eOperations name="moveon" unique="false">
-      <eParameters name="opts" unique="false" eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//DeviceOptions"/>
+      <eParameters name="opts" unique="false" eType="#//DeviceOptions"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" unique="false"
-        eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//DirectionValue"/>
+        eType="#//DirectionValue"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DimmableActor" abstract="true" interface="true">
     <eTypeParameters name="TC">
-      <eBounds eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//DimmableConfiguration"/>
+      <eBounds eClassifier="#//DimmableConfiguration"/>
     </eTypeParameters>
     <eOperations name="dimm" unique="false">
-      <eParameters name="increaseDecrease" unique="false" eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//IncreaseDecreaseValue"/>
-      <eParameters name="opts" unique="false" eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//DeviceOptions"/>
+      <eParameters name="increaseDecrease" unique="false" eType="#//IncreaseDecreaseValue"/>
+      <eParameters name="opts" unique="false" eType="#//DeviceOptions"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minValue" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxValue" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eTypeParameter="org.m1theo.tinkerforge.emf.model#//DimmableActor/TC"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eTypeParameter="#//DimmableActor/TC"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PercentTypeActor" abstract="true" interface="true">
     <eOperations name="setValue" unique="false">
-      <eParameters name="newValue" unique="false" eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//PercentValue"/>
-      <eParameters name="opts" unique="false" eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//DeviceOptions"/>
+      <eParameters name="newValue" unique="false" eType="#//PercentValue"/>
+      <eParameters name="opts" unique="false" eType="#//DeviceOptions"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentValue" unique="false"
-        eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//PercentValue"/>
+        eType="#//PercentValue"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SetPointActor" abstract="true" interface="true">
     <eTypeParameters name="C">
-      <eBounds eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//DimmableConfiguration"/>
+      <eBounds eClassifier="#//DimmableConfiguration"/>
     </eTypeParameters>
     <eOperations name="setValue" unique="false">
       <eParameters name="newValue" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
-      <eParameters name="opts" unique="false" eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//DeviceOptions"/>
+      <eParameters name="opts" unique="false" eType="#//DeviceOptions"/>
     </eOperations>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//DimmableActor">
-      <eTypeArguments eTypeParameter="org.m1theo.tinkerforge.emf.model#//SetPointActor/C"/>
+    <eGenericSuperTypes eClassifier="#//DimmableActor">
+      <eTypeArguments eTypeParameter="#//SetPointActor/C"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//PercentTypeActor"/>
+    <eGenericSuperTypes eClassifier="#//PercentTypeActor"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletDualButton">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="bricklet_dualbutton"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletDualButton"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletDualButton"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//DualButtonDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//DualButtonDevice"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DualButtonDevice" abstract="true" interface="true">
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickletDualButton"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MBrickletDualButton"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletPiezoSpeaker">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="bricklet_piezo_speaker"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletPiezoSpeaker"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletPiezoSpeaker"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//ProgrammableSwitchActor"/>
+    <eGenericSuperTypes eClassifier="#//ProgrammableSwitchActor"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DualButtonButton">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="dualbutton_button"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" unique="false"
-        eType="ecore:EEnum org.m1theo.tinkerforge.emf.model#//DualButtonDevicePosition"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//DualButtonDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//SwitchState"/>
+        eType="#//DualButtonDevicePosition"/>
+    <eGenericSuperTypes eClassifier="#//DualButtonDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//SwitchState"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//ButtonConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//ButtonConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletAccelerometer">
@@ -395,20 +395,20 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="filterBandwidth" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"
         defaultValueLiteral="2"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletAccelerometer"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletAccelerometer"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//AccelerometerDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//AccelerometerDevice"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//BrickletAccelerometerConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//BrickletAccelerometerConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AccelerometerDevice" abstract="true"
       interface="true">
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickletAccelerometer"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MBrickletAccelerometer"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AccelerometerCoordinate">
@@ -424,26 +424,26 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"
         defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" unique="false"
-        eType="ecore:EEnum org.m1theo.tinkerforge.emf.model#//AccelerometerCoordinate"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//AccelerometerDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+        eType="#//AccelerometerCoordinate"/>
+    <eGenericSuperTypes eClassifier="#//AccelerometerDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBaseConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AccelerometerTemperature">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="accelerometer_temperature"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//AccelerometerDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//AccelerometerDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AccelerometerLed" eSuperTypes="org.m1theo.tinkerforge.emf.model#//AccelerometerDevice org.m1theo.tinkerforge.emf.model#//DigitalActor">
+  <eClassifiers xsi:type="ecore:EClass" name="AccelerometerLed" eSuperTypes="#//AccelerometerDevice #//DigitalActor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="accelerometer_led"/>
@@ -463,23 +463,23 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="enableLaserOnStartup" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
         defaultValueLiteral="true"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletLaserRangeFinder"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletLaserRangeFinder"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//LaserRangeFinderDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//LaserRangeFinderDevice"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//LaserRangeFinderConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//LaserRangeFinderConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LaserRangeFinderDevice" abstract="true"
       interface="true">
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickletLaserRangeFinder"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MBrickletLaserRangeFinder"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LaserRangeFinderLaser" eSuperTypes="org.m1theo.tinkerforge.emf.model#//LaserRangeFinderDevice org.m1theo.tinkerforge.emf.model#//DigitalActor">
+  <eClassifiers xsi:type="ecore:EClass" name="LaserRangeFinderLaser" eSuperTypes="#//LaserRangeFinderDevice #//DigitalActor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="laser_range_finder_laser"/>
@@ -491,14 +491,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"
         defaultValueLiteral="0"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//LaserRangeFinderDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//LaserRangeFinderDevice"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBaseConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LaserRangeFinderVelocity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
@@ -507,29 +507,29 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"
         defaultValueLiteral="0"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//LaserRangeFinderDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//LaserRangeFinderDevice"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBaseConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletLoadCell">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="bricklet_loadcell"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletLoadCell"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletLoadCell"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//LoadCellDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//LoadCellDevice"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LoadCellDevice" abstract="true" interface="true">
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickletLoadCell"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MBrickletLoadCell"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LoadCellWeight">
@@ -543,16 +543,16 @@
         defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="movingAverage" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort" defaultValueLiteral="4"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//LoadCellDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//LoadCellDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//LoadCellConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//LoadCellConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LoadCellLed" eSuperTypes="org.m1theo.tinkerforge.emf.model#//LoadCellDevice org.m1theo.tinkerforge.emf.model#//DigitalActor">
+  <eClassifiers xsi:type="ecore:EClass" name="LoadCellLed" eSuperTypes="#//LoadCellDevice #//DigitalActor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="loadcell_led"/>
@@ -566,34 +566,34 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="integrationTime" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"
         defaultValueLiteral="3"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletColor"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletColor"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//BrickletColorDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//BrickletColorDevice"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//BrickletColorConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//BrickletColorConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BrickletColorDevice" abstract="true"
       interface="true">
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickletColor"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MBrickletColor"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColorColor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="color_color"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//BrickletColorDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//HSBValue"/>
+    <eGenericSuperTypes eClassifier="#//BrickletColorDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//HSBValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBaseConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColorIlluminance">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
@@ -602,29 +602,29 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="gain" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="integrationTime" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//BrickletColorDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//BrickletColorDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBaseConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColorColorTemperature">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="color_temperature"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//BrickletColorDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//BrickletColorDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBaseConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ColorLed" eSuperTypes="org.m1theo.tinkerforge.emf.model#//BrickletColorDevice org.m1theo.tinkerforge.emf.model#//DigitalActor">
+  <eClassifiers xsi:type="ecore:EClass" name="ColorLed" eSuperTypes="#//BrickletColorDevice #//DigitalActor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="color_led"/>
@@ -633,43 +633,43 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="dualbutton_led"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" unique="false"
-        eType="ecore:EEnum org.m1theo.tinkerforge.emf.model#//DualButtonDevicePosition"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//DualButtonDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//DigitalActor"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//DualButtonLEDConfiguration"/>
+        eType="#//DualButtonDevicePosition"/>
+    <eGenericSuperTypes eClassifier="#//DualButtonDevice"/>
+    <eGenericSuperTypes eClassifier="#//DigitalActor"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//DualButtonLEDConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletLinearPoti">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="bricklet_linear_poti"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletLinearPoti"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletLinearPoti"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBaseConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletRotaryEncoder">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="bricklet_rotaryencoder"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletRotaryEncoder"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletRotaryEncoder"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//RotaryEncoderDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//RotaryEncoderDevice"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RotaryEncoderDevice" abstract="true"
       interface="true">
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickletRotaryEncoder"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MBrickletRotaryEncoder"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RotaryEncoder">
@@ -677,75 +677,75 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="rotary_encoder"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//RotaryEncoderDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//RotaryEncoderDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBaseConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RotaryEncoderButton">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="rotary_encoder_button"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//RotaryEncoderDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//SwitchState"/>
+    <eGenericSuperTypes eClassifier="#//RotaryEncoderDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//SwitchState"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//ButtonConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//ButtonConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletJoystick">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="bricklet_joystick"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//BrickletJoystick"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//BrickletJoystick"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//JoystickDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//JoystickDevice"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBaseConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JoystickDevice" abstract="true" interface="true">
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickletJoystick"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MBrickletJoystick"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JoystickXPosition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="joystick_xposition"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//JoystickDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//JoystickDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JoystickYPosition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="joystick_yposition"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//JoystickDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//JoystickDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JoystickButton">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="joystick_button"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//JoystickDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//SwitchState"/>
+    <eGenericSuperTypes eClassifier="#//JoystickDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//SwitchState"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//ButtonConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//ButtonConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletAnalogOutV2">
@@ -758,14 +758,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxValueDevice" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"
         defaultValueLiteral="12000"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletAnalogOutV2"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletAnalogOutV2"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//SetPointActor">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//DimmableConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//SetPointActor">
+      <eTypeArguments eClassifier="#//DimmableConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickServo">
@@ -773,11 +773,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="brick_servo"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MTinkerBrickServo"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//MTinkerBrickServo"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MServo"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//MServo"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MServo">
@@ -810,16 +810,16 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="5000"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetPosition" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//ProgrammableSwitchActor"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickServo"/>
+    <eGenericSuperTypes eClassifier="#//ProgrammableSwitchActor"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MBrickServo"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MoveActor"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//SetPointActor">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFServoConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MoveActor"/>
+    <eGenericSuperTypes eClassifier="#//SetPointActor">
+      <eTypeArguments eClassifier="#//TFServoConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickDC">
@@ -852,35 +852,35 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pwmFrequency" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="15000"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="driveMode" unique="false"
-        eType="ecore:EEnum org.m1theo.tinkerforge.emf.model#//DCDriveMode" defaultValueLiteral="BRAKE"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+        eType="#//DCDriveMode" defaultValueLiteral="BRAKE"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//ProgrammableSwitchActor"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MTinkerBrickDC"/>
+    <eGenericSuperTypes eClassifier="#//ProgrammableSwitchActor"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//MTinkerBrickDC"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MoveActor"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//SetPointActor">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBrickDCConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MoveActor"/>
+    <eGenericSuperTypes eClassifier="#//SetPointActor">
+      <eTypeArguments eClassifier="#//TFBrickDCConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickStepper">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="brick_stepper"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MTinkerBrickStepper"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//MTinkerBrickStepper"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MStepperDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//MStepperDevice"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBrickStepperConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBrickStepperConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TFBrickStepperConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration">
+  <eClassifiers xsi:type="ecore:EClass" name="TFBrickStepperConfiguration" eSuperTypes="#//TFBaseConfiguration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxVelocity" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="acceleration" unique="false"
@@ -912,11 +912,11 @@
     <eLiterals name="stepper_led"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MStepperDevice" abstract="true" interface="true">
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickStepper"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MBrickStepper"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MStepperDrive" eSuperTypes="org.m1theo.tinkerforge.emf.model#//MStepperDevice">
+  <eClassifiers xsi:type="ecore:EClass" name="MStepperDrive" eSuperTypes="#//MStepperDevice">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="stepper_drive"/>
@@ -925,93 +925,93 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="stepper_velocity"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MStepperDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MStepperDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MStepperCurrent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="stepper_current"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MStepperDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MStepperDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MStepperPosition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="stepper_position"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MStepperDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MStepperDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MStepperSteps">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="stepper_steps"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MStepperDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MStepperDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MStepperStackVoltage">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="stepper_stack_voltage"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MStepperDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MStepperDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MStepperExternalVoltage">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="stepper_external_voltage"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MStepperDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MStepperDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MStepperConsumption">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="stepper_consumption"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MStepperDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MStepperDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MStepperUnderVoltage">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="stepper_under_voltage"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MStepperDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MStepperDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MStepperState">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="stepper_state"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MStepperDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MStepperDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MStepperChipTemperature">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="stepper_chip_temperature"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MStepperDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MStepperDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MStepperStatusLed" eSuperTypes="org.m1theo.tinkerforge.emf.model#//MStepperDevice org.m1theo.tinkerforge.emf.model#//DigitalActor">
+  <eClassifiers xsi:type="ecore:EClass" name="MStepperStatusLed" eSuperTypes="#//MStepperDevice #//DigitalActor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="stepper_led"/>
@@ -1020,68 +1020,68 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="bricklet_dual_relay"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MTinkerBrickletDualRelay"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//MTinkerBrickletDualRelay"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDualRelay"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//MDualRelay"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MIndustrialQuadRelayBricklet">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="bricklet_quad_relay"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MTinkerBrickletIndustrialQuadRelay"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//MTinkerBrickletIndustrialQuadRelay"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MIndustrialQuadRelay"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//MIndustrialQuadRelay"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MIndustrialQuadRelay">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="quad_relay"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MInSwitchActor"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MIndustrialQuadRelayBricklet"/>
+    <eGenericSuperTypes eClassifier="#//MInSwitchActor"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MIndustrialQuadRelayBricklet"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletIndustrialDigitalIn4">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="bricklet_industrial_digital_4in"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MIndustrialDigitalIn"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//MIndustrialDigitalIn"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MTinkerBrickletIndustrialDigitalIn4"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//MTinkerBrickletIndustrialDigitalIn4"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//InterruptListener"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFInterruptListenerConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//InterruptListener"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFInterruptListenerConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MIndustrialDigitalIn">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="digital_4in"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickletIndustrialDigitalIn4"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MBrickletIndustrialDigitalIn4"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//DigitalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//DigitalValue"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletIndustrialDigitalOut4">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="bricklet_industrial_digital_4out"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MTinkerBrickletIndustrialDigitalOut4"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//MTinkerBrickletIndustrialDigitalOut4"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//DigitalActorDigitalOut4"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//DigitalActorDigitalOut4"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DigitalActorDigitalOut4">
@@ -1089,18 +1089,18 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="digital_4out"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//DigitalActor"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickletIndustrialDigitalOut4"/>
+    <eGenericSuperTypes eClassifier="#//DigitalActor"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MBrickletIndustrialDigitalOut4"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletSegmentDisplay4x7">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="bricklet_segmentdisplay4x7"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//NumberActor"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletSegmentDisplay4x7"/>
+    <eGenericSuperTypes eClassifier="#//NumberActor"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletSegmentDisplay4x7"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletLEDStrip">
@@ -1109,33 +1109,33 @@
         defaultValueLiteral="bricklet_ledstrip"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorMapping" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="rgb"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//ProgrammableColorActor"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletLEDStrip"/>
+    <eGenericSuperTypes eClassifier="#//ProgrammableColorActor"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletLEDStrip"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//LEDStripConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//LEDStripConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//LEDGroup"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//LEDGroup"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LEDGroup">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="ledgroup"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickletLEDStrip"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MBrickletLEDStrip"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//SimpleColorActor"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSwitchActor"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//LEDGroupConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//SimpleColorActor"/>
+    <eGenericSuperTypes eClassifier="#//MSwitchActor"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//LEDGroupConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DigitalActorIO16">
     <eOperations name="turnDigital" unique="false">
-      <eParameters name="digitalState" unique="false" eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//DigitalValue"/>
+      <eParameters name="digitalState" unique="false" eType="#//DigitalValue"/>
     </eOperations>
     <eOperations name="fetchDigitalValue" unique="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
@@ -1147,25 +1147,25 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="keepOnReconnect" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//DigitalActor"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//IODevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFIOActorConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//DigitalActor"/>
+    <eGenericSuperTypes eClassifier="#//IODevice"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFIOActorConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletIO16">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="bricklet_io16"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletIO16"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletIO16"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//IODevice"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//IODevice"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//InterruptListener"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFInterruptListenerConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//InterruptListener"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFInterruptListenerConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DigitalSensor">
@@ -1176,34 +1176,34 @@
         unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pin" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//IODevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//DigitalValue"/>
+    <eGenericSuperTypes eClassifier="#//IODevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//DigitalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFIOSensorConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFIOSensorConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletIO4">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="bricklet_io4"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletIO4"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletIO4"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//IO4Device"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//IO4Device"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//InterruptListener"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFInterruptListenerConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//InterruptListener"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFInterruptListenerConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IO4Device" abstract="true" interface="true">
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickletIO4"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MBrickletIO4"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//GenericDevice"/>
+    <eGenericSuperTypes eClassifier="#//GenericDevice"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DigitalSensorIO4">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
@@ -1212,17 +1212,17 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pullUpResistorEnabled"
         unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pin" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//IO4Device"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//DigitalValue"/>
+    <eGenericSuperTypes eClassifier="#//IO4Device"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//DigitalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFIOSensorConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFIOSensorConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DigitalActorIO4">
     <eOperations name="turnDigital" unique="false">
-      <eParameters name="digitalState" unique="false" eType="ecore:EDataType org.m1theo.tinkerforge.emf.model#//DigitalValue"/>
+      <eParameters name="digitalState" unique="false" eType="#//DigitalValue"/>
     </eOperations>
     <eOperations name="fetchDigitalValue" unique="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
@@ -1233,10 +1233,10 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="keepOnReconnect" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//DigitalActor"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//IO4Device"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFIOActorConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//DigitalActor"/>
+    <eGenericSuperTypes eClassifier="#//IO4Device"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFIOActorConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletMultiTouch">
@@ -1247,36 +1247,36 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sensitivity" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletMultiTouch"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletMultiTouch"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MultiTouchDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//MultiTouchDevice"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//BrickletMultiTouchConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//BrickletMultiTouchConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MultiTouchDevice">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pin" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="disableElectrode" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickletMultiTouch"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MBrickletMultiTouch"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//DigitalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//DigitalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MultiTouchDeviceConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//MultiTouchDeviceConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Electrode" eSuperTypes="org.m1theo.tinkerforge.emf.model#//MultiTouchDevice">
+  <eClassifiers xsi:type="ecore:EClass" name="Electrode" eSuperTypes="#//MultiTouchDevice">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="electrode"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Proximity" eSuperTypes="org.m1theo.tinkerforge.emf.model#//MultiTouchDevice">
+  <eClassifiers xsi:type="ecore:EClass" name="Proximity" eSuperTypes="#//MultiTouchDevice">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="proximity"/>
@@ -1286,11 +1286,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="motion_detector"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletMotionDetector"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletMotionDetector"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//DigitalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//DigitalValue"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletHallEffect">
@@ -1298,24 +1298,24 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="bricklet_halleffect"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletHallEffect"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletHallEffect"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//DigitalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//DigitalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBaseConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MDualRelay">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="dual_relay"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MInSwitchActor"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDualRelayBricklet"/>
+    <eGenericSuperTypes eClassifier="#//MInSwitchActor"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MDualRelayBricklet"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletRemoteSwitch">
@@ -1328,21 +1328,21 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeCDevices" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletRemoteSwitch"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletRemoteSwitch"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//RemoteSwitch"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//RemoteSwitch"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//SubDeviceAdmin"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//BrickletRemoteSwitchConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//SubDeviceAdmin"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//BrickletRemoteSwitchConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RemoteSwitch" abstract="true" interface="true">
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MInSwitchActor"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickletRemoteSwitch"/>
+    <eGenericSuperTypes eClassifier="#//MInSwitchActor"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MBrickletRemoteSwitch"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RemoteSwitchA">
@@ -1355,9 +1355,9 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="repeats" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//RemoteSwitch"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//RemoteSwitchAConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//RemoteSwitch"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//RemoteSwitchAConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RemoteSwitchB">
@@ -1371,14 +1371,14 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="absDimmValue" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//PercentValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//PercentValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//RemoteSwitch"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//DimmableActor">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//RemoteSwitchBConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//RemoteSwitch"/>
+    <eGenericSuperTypes eClassifier="#//DimmableActor">
+      <eTypeArguments eClassifier="#//RemoteSwitchBConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//PercentTypeActor"/>
+    <eGenericSuperTypes eClassifier="#//PercentTypeActor"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RemoteSwitchC">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
@@ -1390,9 +1390,9 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="repeats" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//RemoteSwitch"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//RemoteSwitchCConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//RemoteSwitch"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//RemoteSwitchCConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletHumidity">
@@ -1402,16 +1402,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"
         defaultValueLiteral="0.5"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MTinkerBrickletHumidity"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//MTinkerBrickletHumidity"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBaseConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletDistanceIR">
     <eOperations name="init" unique="false"/>
@@ -1421,40 +1421,40 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"
         defaultValueLiteral="5"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MTinkerBrickletDistanceIR"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//MTinkerBrickletDistanceIR"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBaseConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletSolidStateRelay">
     <eOperations name="init" unique="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="bricklet_solidstaterelay"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletSolidStateRelay"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletSolidStateRelay"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSwitchActor"/>
+    <eGenericSuperTypes eClassifier="#//MSwitchActor"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletIndustrialDual020mA">
     <eOperations name="init" unique="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="bricklet_industrialdual020ma"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletIndustrialDual020mA"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletIndustrialDual020mA"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//Dual020mADevice"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//Dual020mADevice"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFIndustrialDual020mAConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFIndustrialDual020mAConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Dual020mADevice">
@@ -1466,15 +1466,15 @@
         defaultValueLiteral="1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sensorNum" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickletIndustrialDual020mA"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MBrickletIndustrialDual020mA"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBaseConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletPTC">
@@ -1482,19 +1482,19 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="bricklet_ptc"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletPTC"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletPTC"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFPTCBrickletConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFPTCBrickletConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//PTCDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//PTCDevice"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PTCDevice" abstract="true" interface="true">
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickletPTC"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MBrickletPTC"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PTCTemperature">
@@ -1504,14 +1504,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"
         defaultValueLiteral="2"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//PTCDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//PTCDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBaseConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PTCResistance">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
@@ -1520,22 +1520,22 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"
         defaultValueLiteral="2"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//PTCDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//PTCDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBaseConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PTCConnected">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="ptc_connected"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//PTCDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//DigitalValue"/>
+    <eGenericSuperTypes eClassifier="#//PTCDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//DigitalValue"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletTemperature">
@@ -1548,16 +1548,16 @@
         defaultValueLiteral="0.1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="slowI2C" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MTinkerBrickletTemperature"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//MTinkerBrickletTemperature"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFTemperatureConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFTemperatureConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletThermocouple">
     <eOperations name="init" unique="false"/>
@@ -1567,16 +1567,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"
         defaultValueLiteral="0"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletThermocouple"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletThermocouple"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFThermocoupleConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFThermocoupleConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletUVLight">
     <eOperations name="init" unique="false"/>
@@ -1586,16 +1586,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"
         defaultValueLiteral="0"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletUVLight"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletUVLight"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBaseConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletCO2">
     <eOperations name="init" unique="false"/>
@@ -1605,26 +1605,26 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"
         defaultValueLiteral="0"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletCO2"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletCO2"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBaseConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletTemperatureIR">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="bricklet_temperatureIR"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletTemperatureIR"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletTemperatureIR"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTemperatureIRDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//MTemperatureIRDevice"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MTemperatureIRDevice" abstract="true"
@@ -1632,13 +1632,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"
         defaultValueLiteral="0.1"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickletTemperatureIR"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MBrickletTemperatureIR"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ObjectTemperature">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
@@ -1646,29 +1646,29 @@
         defaultValueLiteral="object_temperature"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="emissivity" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="65535"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTemperatureIRDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFObjectTemperatureConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTemperatureIRDevice"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFObjectTemperatureConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AmbientTemperature">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="ambient_temperature"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTemperatureIRDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTemperatureIRDevice"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBaseConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletTilt">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="bricklet_tilt"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletTilt"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletTilt"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletVoltageCurrent">
@@ -1684,30 +1684,30 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentConversionTime"
         unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"
         defaultValueLiteral="4"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletVoltageCurrent"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletVoltageCurrent"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//VoltageCurrentDevice"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//VoltageCurrentDevice"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFVoltageCurrentConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFVoltageCurrentConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VoltageCurrentDevice" abstract="true"
       interface="true">
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickletVoltageCurrent"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MBrickletVoltageCurrent"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBaseConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="VCDeviceVoltage" eSuperTypes="org.m1theo.tinkerforge.emf.model#//VoltageCurrentDevice">
+  <eClassifiers xsi:type="ecore:EClass" name="VCDeviceVoltage" eSuperTypes="#//VoltageCurrentDevice">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="voltageCurrent_voltage"/>
@@ -1715,7 +1715,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"
         defaultValueLiteral="20"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="VCDeviceCurrent" eSuperTypes="org.m1theo.tinkerforge.emf.model#//VoltageCurrentDevice">
+  <eClassifiers xsi:type="ecore:EClass" name="VCDeviceCurrent" eSuperTypes="#//VoltageCurrentDevice">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="voltageCurrent_current"/>
@@ -1723,7 +1723,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"
         defaultValueLiteral="10"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="VCDevicePower" eSuperTypes="org.m1theo.tinkerforge.emf.model#//VoltageCurrentDevice">
+  <eClassifiers xsi:type="ecore:EClass" name="VCDevicePower" eSuperTypes="#//VoltageCurrentDevice">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="voltageCurrent_power"/>
@@ -1743,29 +1743,29 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="movingAverageLengthTemperature"
         unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="100"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletHumidityV2"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletHumidityV2"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MHumidityV2Device"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//MHumidityV2Device"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//HumidityV2Configuration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//HumidityV2Configuration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MHumidityV2Device" abstract="true" interface="true">
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickletHumidityV2"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MBrickletHumidityV2"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBaseConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MHumidityV2Temperature" eSuperTypes="org.m1theo.tinkerforge.emf.model#//MHumidityV2Device">
+  <eClassifiers xsi:type="ecore:EClass" name="MHumidityV2Temperature" eSuperTypes="#//MHumidityV2Device">
     <eOperations name="init" unique="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
@@ -1774,7 +1774,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"
         defaultValueLiteral="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MHumidityV2Humidity" eSuperTypes="org.m1theo.tinkerforge.emf.model#//MHumidityV2Device">
+  <eClassifiers xsi:type="ecore:EClass" name="MHumidityV2Humidity" eSuperTypes="#//MHumidityV2Device">
     <eOperations name="init" unique="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
@@ -1791,30 +1791,30 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"
         defaultValueLiteral="1"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MTinkerBrickletBarometer"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//MTinkerBrickletBarometer"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBaseConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBarometerTemperature"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//MBarometerTemperature"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBarometerTemperature">
     <eOperations name="init" unique="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="barometer_temperature"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickletBarometer"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MBrickletBarometer"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletAmbientLight">
@@ -1825,16 +1825,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"
         defaultValueLiteral="1"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MTinkerBrickletAmbientLight"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//MTinkerBrickletAmbientLight"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBaseConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletAmbientLightV2">
     <eOperations name="init" unique="false"/>
@@ -1848,16 +1848,16 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort" defaultValueLiteral="3"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="integrationTime" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort" defaultValueLiteral="3"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletAmbientLightV2"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletAmbientLightV2"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//AmbientLightV2Configuration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//AmbientLightV2Configuration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletIndustrialDualAnalogIn">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
@@ -1865,14 +1865,14 @@
         defaultValueLiteral="bricklet_industrial_dual_analogin"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sampleRate" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort" defaultValueLiteral="6"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletIndustrialDualAnalogIn"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletIndustrialDualAnalogIn"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//BrickletIndustrialDualAnalogInConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//BrickletIndustrialDualAnalogInConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//IndustrialDualAnalogInChannel"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//IndustrialDualAnalogInChannel"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IndustrialDualAnalogInChannel">
@@ -1884,16 +1884,16 @@
         defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="channelNum" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDevice">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MBrickletIndustrialDualAnalogIn"/>
+    <eGenericSuperTypes eClassifier="#//MSubDevice">
+      <eTypeArguments eClassifier="#//MBrickletIndustrialDualAnalogIn"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBaseConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletSoundIntensity">
     <eOperations name="init" unique="false"/>
@@ -1903,16 +1903,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"
         defaultValueLiteral="0"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletSoundIntensity"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletSoundIntensity"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBaseConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletDustDetector">
     <eOperations name="init" unique="false"/>
@@ -1922,16 +1922,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"
         defaultValueLiteral="0"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletDustDetector"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletDustDetector"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFBaseConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletMoisture">
     <eOperations name="init" unique="false"/>
@@ -1944,16 +1944,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="movingAverage" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"
         defaultValueLiteral="100"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletMoisture"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletMoisture"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFMoistureBrickletConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFMoistureBrickletConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletAnalogInV2">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
@@ -1965,16 +1965,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="movingAverage" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"
         defaultValueLiteral="100"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletAnalogInV2"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletAnalogInV2"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFAnalogInV2Configuration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFAnalogInV2Configuration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletAnalogIn">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
@@ -1988,16 +1988,16 @@
         defaultValueLiteral="100"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="range" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"
         defaultValueLiteral="0"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletAnalogIn"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletAnalogIn"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFAnalogInConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFAnalogInConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletDistanceUS">
     <eOperations name="init" unique="false"/>
@@ -2010,16 +2010,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="movingAverage" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"
         defaultValueLiteral="100"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletDistanceUS"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletDistanceUS"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MDecimalValue"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//MDecimalValue"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFDistanceUSBrickletConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//TFDistanceUSBrickletConfiguration"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//CallbackListener"/>
+    <eGenericSuperTypes eClassifier="#//CallbackListener"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletLCD20x4">
     <eOperations name="init" unique="false"/>
@@ -2036,12 +2036,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="errorPrefix" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="openhab Error:"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//MTinkerBrickletLCD20x4"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//MTinkerBrickletLCD20x4"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTextActor"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSubDeviceHolder">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MLCDSubDevice"/>
+    <eGenericSuperTypes eClassifier="#//MTextActor"/>
+    <eGenericSuperTypes eClassifier="#//MSubDeviceHolder">
+      <eTypeArguments eClassifier="#//MLCDSubDevice"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OLEDBricklet" abstract="true" interface="true">
@@ -2078,29 +2078,29 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="bricklet_oled128x64"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//OLEDBricklet"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletOLED128x64"/>
+    <eGenericSuperTypes eClassifier="#//OLEDBricklet"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletOLED128x64"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTextActor"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//BrickletOLEDConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTextActor"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//BrickletOLEDConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MBrickletOLE64x48">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="bricklet_oled64x48"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//OLEDBricklet"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MDevice">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//TinkerBrickletOLED64x48"/>
+    <eGenericSuperTypes eClassifier="#//OLEDBricklet"/>
+    <eGenericSuperTypes eClassifier="#//MDevice">
+      <eTypeArguments eClassifier="#//TinkerBrickletOLED64x48"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTextActor"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//BrickletOLEDConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MTextActor"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//BrickletOLEDConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MLCD20x4Backlight" eSuperTypes="org.m1theo.tinkerforge.emf.model#//MInSwitchActor org.m1theo.tinkerforge.emf.model#//MLCDSubDevice">
+  <eClassifiers xsi:type="ecore:EClass" name="MLCD20x4Backlight" eSuperTypes="#//MInSwitchActor #//MLCDSubDevice">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="backlight"/>
@@ -2111,21 +2111,21 @@
         defaultValueLiteral="lcd_button"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="buttonNum" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MSensor">
-      <eTypeArguments eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//SwitchState"/>
+    <eGenericSuperTypes eClassifier="#//MSensor">
+      <eTypeArguments eClassifier="#//SwitchState"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MLCDSubDevice"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//MTFConfigConsumer">
-      <eTypeArguments eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//ButtonConfiguration"/>
+    <eGenericSuperTypes eClassifier="#//MLCDSubDevice"/>
+    <eGenericSuperTypes eClassifier="#//MTFConfigConsumer">
+      <eTypeArguments eClassifier="#//ButtonConfiguration"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TFConfig" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="OHTFDevice">
     <eTypeParameters name="TFC">
-      <eBounds eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFConfig"/>
+      <eBounds eClassifier="#//TFConfig"/>
     </eTypeParameters>
     <eTypeParameters name="IDS">
-      <eBounds eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//Enum"/>
+      <eBounds eClassifier="#//Enum"/>
     </eTypeParameters>
     <eOperations name="isValidSubId" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="subId" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -2135,33 +2135,33 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ohid" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="subDeviceIds" unique="false"
         upperBound="-1">
-      <eGenericType eTypeParameter="org.m1theo.tinkerforge.emf.model#//OHTFDevice/IDS"/>
+      <eGenericType eTypeParameter="#//OHTFDevice/IDS"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tfConfig" containment="true"
         resolveProxies="false">
-      <eGenericType eTypeParameter="org.m1theo.tinkerforge.emf.model#//OHTFDevice/TFC"/>
+      <eGenericType eTypeParameter="#//OHTFDevice/TFC"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ohConfig" eType="ecore:EClass org.m1theo.tinkerforge.emf.model#//OHConfig"
-        eOpposite="org.m1theo.tinkerforge.emf.model#//OHConfig/ohTfDevices"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ohConfig" eType="#//OHConfig"
+        eOpposite="#//OHConfig/ohTfDevices"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OHTFSubDeviceAdminDevice">
     <eTypeParameters name="TFC">
-      <eBounds eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//TFConfig"/>
+      <eBounds eClassifier="#//TFConfig"/>
     </eTypeParameters>
     <eTypeParameters name="IDS">
-      <eBounds eClassifier="ecore:EDataType org.m1theo.tinkerforge.emf.model#//Enum"/>
+      <eBounds eClassifier="#//Enum"/>
     </eTypeParameters>
     <eOperations name="isValidSubId" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="subId" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
-    <eGenericSuperTypes eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//OHTFDevice">
-      <eTypeArguments eTypeParameter="org.m1theo.tinkerforge.emf.model#//OHTFSubDeviceAdminDevice/TFC"/>
-      <eTypeArguments eTypeParameter="org.m1theo.tinkerforge.emf.model#//OHTFSubDeviceAdminDevice/IDS"/>
+    <eGenericSuperTypes eClassifier="#//OHTFDevice">
+      <eTypeArguments eTypeParameter="#//OHTFSubDeviceAdminDevice/TFC"/>
+      <eTypeArguments eTypeParameter="#//OHTFSubDeviceAdminDevice/IDS"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OHConfig">
     <eOperations name="getConfigByTFId" unique="false">
-      <eGenericType eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//OHTFDevice">
+      <eGenericType eClassifier="#//OHTFDevice">
         <eTypeArguments/>
         <eTypeArguments/>
       </eGenericType>
@@ -2169,43 +2169,43 @@
       <eParameters name="subid" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eOperations name="getConfigByOHId" unique="false">
-      <eGenericType eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//OHTFDevice">
+      <eGenericType eClassifier="#//OHTFDevice">
         <eTypeArguments/>
         <eTypeArguments/>
       </eGenericType>
       <eParameters name="ohid" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ohTfDevices" upperBound="-1"
-        containment="true" resolveProxies="false" eOpposite="org.m1theo.tinkerforge.emf.model#//OHTFDevice/ohConfig">
-      <eGenericType eClassifier="ecore:EClass org.m1theo.tinkerforge.emf.model#//OHTFDevice">
+        containment="true" resolveProxies="false" eOpposite="#//OHTFDevice/ohConfig">
+      <eGenericType eClassifier="#//OHTFDevice">
         <eTypeArguments/>
         <eTypeArguments/>
       </eGenericType>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TFNullConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFConfig"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TFPTCBrickletConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFConfig">
+  <eClassifiers xsi:type="ecore:EClass" name="TFNullConfiguration" eSuperTypes="#//TFConfig"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TFPTCBrickletConfiguration" eSuperTypes="#//TFConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="noiseRejectionFilter" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="wireMode" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TFIndustrialDual020mAConfiguration"
-      eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFConfig">
+      eSuperTypes="#//TFConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sampleRate" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TFBaseConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFConfig">
+  <eClassifiers xsi:type="ecore:EClass" name="TFBaseConfiguration" eSuperTypes="#//TFConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="callbackPeriod" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LoadCellConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration">
+  <eClassifiers xsi:type="ecore:EClass" name="LoadCellConfiguration" eSuperTypes="#//TFBaseConfiguration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="movingAverage" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LaserRangeFinderConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFConfig">
+  <eClassifiers xsi:type="ecore:EClass" name="LaserRangeFinderConfiguration" eSuperTypes="#//TFConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="distanceAverageLength"
         unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="velocityAverageLength"
@@ -2214,7 +2214,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="enableLaserOnStartup" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="HumidityV2Configuration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFConfig">
+  <eClassifiers xsi:type="ecore:EClass" name="HumidityV2Configuration" eSuperTypes="#//TFConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="heaterConfiguration" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="movingAverageLengthHumidity"
@@ -2222,22 +2222,22 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="movingAverageLengthTemperature"
         unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AmbientLightV2Configuration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration">
+  <eClassifiers xsi:type="ecore:EClass" name="AmbientLightV2Configuration" eSuperTypes="#//TFBaseConfiguration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="illuminanceRange" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="integrationTime" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BrickletIndustrialDualAnalogInConfiguration"
-      eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration">
+      eSuperTypes="#//TFBaseConfiguration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sampleRate" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TFTemperatureConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration">
+  <eClassifiers xsi:type="ecore:EClass" name="TFTemperatureConfiguration" eSuperTypes="#//TFBaseConfiguration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="slowI2C" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TFThermocoupleConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration">
+  <eClassifiers xsi:type="ecore:EClass" name="TFThermocoupleConfiguration" eSuperTypes="#//TFBaseConfiguration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="averaging" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="thermocoupleType" unique="false"
@@ -2245,28 +2245,28 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TFObjectTemperatureConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration">
+  <eClassifiers xsi:type="ecore:EClass" name="TFObjectTemperatureConfiguration" eSuperTypes="#//TFBaseConfiguration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="emissivity" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TFMoistureBrickletConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration">
+  <eClassifiers xsi:type="ecore:EClass" name="TFMoistureBrickletConfiguration" eSuperTypes="#//TFBaseConfiguration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="movingAverage" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TFAnalogInConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration">
+  <eClassifiers xsi:type="ecore:EClass" name="TFAnalogInConfiguration" eSuperTypes="#//TFBaseConfiguration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="movingAverage" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="range" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TFAnalogInV2Configuration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration">
+  <eClassifiers xsi:type="ecore:EClass" name="TFAnalogInV2Configuration" eSuperTypes="#//TFBaseConfiguration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="movingAverage" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TFDistanceUSBrickletConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration">
+  <eClassifiers xsi:type="ecore:EClass" name="TFDistanceUSBrickletConfiguration" eSuperTypes="#//TFBaseConfiguration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="movingAverage" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TFVoltageCurrentConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFConfig">
+  <eClassifiers xsi:type="ecore:EClass" name="TFVoltageCurrentConfiguration" eSuperTypes="#//TFConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="averaging" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="voltageConversionTime"
@@ -2274,7 +2274,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentConversionTime"
         unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TFBrickDCConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//DimmableConfiguration org.m1theo.tinkerforge.emf.model#//TFBaseConfiguration">
+  <eClassifiers xsi:type="ecore:EClass" name="TFBrickDCConfiguration" eSuperTypes="#//DimmableConfiguration #//TFBaseConfiguration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="velocity" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="acceleration" unique="false"
@@ -2284,21 +2284,21 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="driveMode" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TFIOActorConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFConfig">
+  <eClassifiers xsi:type="ecore:EClass" name="TFIOActorConfiguration" eSuperTypes="#//TFConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultState" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="keepOnReconnect" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TFInterruptListenerConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFConfig">
+  <eClassifiers xsi:type="ecore:EClass" name="TFInterruptListenerConfiguration" eSuperTypes="#//TFConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="debouncePeriod" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TFIOSensorConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFConfig">
+  <eClassifiers xsi:type="ecore:EClass" name="TFIOSensorConfiguration" eSuperTypes="#//TFConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pullUpResistorEnabled"
         unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TFServoConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//DimmableConfiguration">
+  <eClassifiers xsi:type="ecore:EClass" name="TFServoConfiguration" eSuperTypes="#//DimmableConfiguration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="velocity" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="acceleration" unique="false"
@@ -2314,7 +2314,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputVoltage" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BrickletRemoteSwitchConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFConfig">
+  <eClassifiers xsi:type="ecore:EClass" name="BrickletRemoteSwitchConfiguration" eSuperTypes="#//TFConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeADevices" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeBDevices" unique="false"
@@ -2322,7 +2322,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeCDevices" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RemoteSwitchAConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFConfig">
+  <eClassifiers xsi:type="ecore:EClass" name="RemoteSwitchAConfiguration" eSuperTypes="#//TFConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="houseCode" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="receiverCode" unique="false"
@@ -2330,14 +2330,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="repeats" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RemoteSwitchBConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//DimmableConfiguration">
+  <eClassifiers xsi:type="ecore:EClass" name="RemoteSwitchBConfiguration" eSuperTypes="#//DimmableConfiguration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="repeats" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RemoteSwitchCConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFConfig">
+  <eClassifiers xsi:type="ecore:EClass" name="RemoteSwitchCConfiguration" eSuperTypes="#//TFConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemCode" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceCode" unique="false"
@@ -2345,31 +2345,31 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="repeats" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MultiTouchDeviceConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFConfig">
+  <eClassifiers xsi:type="ecore:EClass" name="MultiTouchDeviceConfiguration" eSuperTypes="#//TFConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="disableElectrode" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BrickletMultiTouchConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFConfig">
+  <eClassifiers xsi:type="ecore:EClass" name="BrickletMultiTouchConfiguration" eSuperTypes="#//TFConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="recalibrate" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sensitivity" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DimmableConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFConfig">
+  <eClassifiers xsi:type="ecore:EClass" name="DimmableConfiguration" eSuperTypes="#//TFConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minValue" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxValue" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ButtonConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFConfig">
+  <eClassifiers xsi:type="ecore:EClass" name="ButtonConfiguration" eSuperTypes="#//TFConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tactile" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DualButtonLEDConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFConfig">
+  <eClassifiers xsi:type="ecore:EClass" name="DualButtonLEDConfiguration" eSuperTypes="#//TFConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="autotoggle" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LEDStripConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFConfig">
+  <eClassifiers xsi:type="ecore:EClass" name="LEDStripConfiguration" eSuperTypes="#//TFConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="chiptype" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="frameduration" unique="false"
@@ -2381,16 +2381,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="subDevices" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LEDGroupConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFConfig">
+  <eClassifiers xsi:type="ecore:EClass" name="LEDGroupConfiguration" eSuperTypes="#//TFConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="leds" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BrickletColorConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFConfig">
+  <eClassifiers xsi:type="ecore:EClass" name="BrickletColorConfiguration" eSuperTypes="#//TFConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="gain" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="integrationTime" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BrickletAccelerometerConfiguration"
-      eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFConfig">
+      eSuperTypes="#//TFConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataRate" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullScale" unique="false"
@@ -2398,7 +2398,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="filterBandwidth" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BrickletOLEDConfiguration" eSuperTypes="org.m1theo.tinkerforge.emf.model#//TFConfig">
+  <eClassifiers xsi:type="ecore:EClass" name="BrickletOLEDConfiguration" eSuperTypes="#//TFConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contrast" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShortObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="invert" unique="false"

@@ -2269,10 +2269,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
     /**
    * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-    public EOperation getEcosystem__GetDevices4GenericId__String_String() {
+  public EOperation getEcosystem__GetDevices() {
         return getEcosystem().getEOperations().get(2);
   }
 
@@ -2281,8 +2281,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
      * <!-- end-user-doc -->
    * @generated
    */
-    public EOperation getEcosystem__Disconnect() {
+    public EOperation getEcosystem__GetDevices4GenericId__String_String() {
         return getEcosystem().getEOperations().get(3);
+  }
+
+    /**
+   * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+   * @generated
+   */
+    public EOperation getEcosystem__Disconnect() {
+        return getEcosystem().getEOperations().get(4);
   }
 
     /**

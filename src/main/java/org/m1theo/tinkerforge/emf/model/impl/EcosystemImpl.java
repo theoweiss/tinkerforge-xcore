@@ -12,6 +12,7 @@
 package org.m1theo.tinkerforge.emf.model.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -28,6 +29,7 @@ import org.m1theo.tinkerforge.emf.model.Ecosystem;
 import org.m1theo.tinkerforge.emf.model.GenericDevice;
 import org.m1theo.tinkerforge.emf.model.MBaseDevice;
 import org.m1theo.tinkerforge.emf.model.MBrickd;
+import org.m1theo.tinkerforge.emf.model.MDevice;
 import org.m1theo.tinkerforge.emf.model.MSubDevice;
 import org.m1theo.tinkerforge.emf.model.MSubDeviceHolder;
 import org.m1theo.tinkerforge.emf.model.ModelPackage;
@@ -192,6 +194,30 @@ public class EcosystemImpl extends MinimalEObjectImpl.Container implements Ecosy
     }
 
     /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated NOT
+   */
+  public EList<MBaseDevice> getDevices() {
+    EList<MBaseDevice> allDevices = new BasicEList<MBaseDevice>();
+    EList<MBrickd> _mbrickds = getMbrickds();
+    for (final MBrickd mbrickd : _mbrickds) {
+      EList<MDevice<?>> devices =  mbrickd.getMdevices();
+      allDevices.addAll(devices);
+      for (MDevice<?> device : devices) {
+        if (device instanceof MSubDeviceHolder) {
+          final MSubDeviceHolder<?> mBrick = ((MSubDeviceHolder<?>) device);
+          EList<?> subdevices = mBrick.getMsubdevices();
+          for (Object subDevice : subdevices) {
+            allDevices.add((MBaseDevice) subDevice);
+          }
+        }
+      }
+    }
+    return allDevices;
+  }
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated NOT
@@ -349,6 +375,8 @@ public class EcosystemImpl extends MinimalEObjectImpl.Container implements Ecosy
         return getBrickd((String)arguments.get(0), (Integer)arguments.get(1));
       case ModelPackage.ECOSYSTEM___GET_DEVICE__STRING_STRING:
         return getDevice((String)arguments.get(0), (String)arguments.get(1));
+      case ModelPackage.ECOSYSTEM___GET_DEVICES:
+        return getDevices();
       case ModelPackage.ECOSYSTEM___GET_DEVICES4_GENERIC_ID__STRING_STRING:
         return getDevices4GenericId((String)arguments.get(0), (String)arguments.get(1));
       case ModelPackage.ECOSYSTEM___DISCONNECT:

@@ -135,13 +135,22 @@ public interface ModelPackage extends EPackage {
 	int ECOSYSTEM___GET_DEVICE__STRING_STRING = 1;
 
 	/**
+   * The operation id for the '<em>Get Devices</em>' operation.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ECOSYSTEM___GET_DEVICES = 2;
+
+  /**
    * The operation id for the '<em>Get Devices4 Generic Id</em>' operation.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-	int ECOSYSTEM___GET_DEVICES4_GENERIC_ID__STRING_STRING = 2;
+	int ECOSYSTEM___GET_DEVICES4_GENERIC_ID__STRING_STRING = 3;
 
 	/**
    * The operation id for the '<em>Disconnect</em>' operation.
@@ -150,7 +159,7 @@ public interface ModelPackage extends EPackage {
    * @generated
    * @ordered
    */
-	int ECOSYSTEM___DISCONNECT = 3;
+	int ECOSYSTEM___DISCONNECT = 4;
 
 	/**
    * The number of operations of the '<em>Ecosystem</em>' class.
@@ -159,7 +168,7 @@ public interface ModelPackage extends EPackage {
    * @generated
    * @ordered
    */
-	int ECOSYSTEM_OPERATION_COUNT = 4;
+	int ECOSYSTEM_OPERATION_COUNT = 5;
 
 	/**
    * The meta object id for the '{@link org.m1theo.tinkerforge.emf.model.impl.MBrickdImpl <em>MBrickd</em>}' class.
@@ -27776,6 +27785,16 @@ public interface ModelPackage extends EPackage {
 	EOperation getEcosystem__GetDevice__String_String();
 
 	/**
+   * Returns the meta object for the '{@link org.m1theo.tinkerforge.emf.model.Ecosystem#getDevices() <em>Get Devices</em>}' operation.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the '<em>Get Devices</em>' operation.
+   * @see org.m1theo.tinkerforge.emf.model.Ecosystem#getDevices()
+   * @generated
+   */
+  EOperation getEcosystem__GetDevices();
+
+  /**
    * Returns the meta object for the '{@link org.m1theo.tinkerforge.emf.model.Ecosystem#getDevices4GenericId(java.lang.String, java.lang.String) <em>Get Devices4 Generic Id</em>}' operation.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

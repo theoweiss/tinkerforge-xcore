@@ -1,9 +1,11 @@
 package org.m1theo.tinkerforge.emf.client;
 
+import java.util.List;
 import java.util.Map;
 
 import org.m1theo.tinkerforge.config.DeviceOptions;
 import org.m1theo.tinkerforge.emf.client.impl.ClientImpl;
+import org.m1theo.tinkerforge.emf.model.MBaseDevice;
 import org.m1theo.tinkerforge.types.TinkerforgeValue;
 
 public interface Client {
@@ -20,4 +22,6 @@ public interface Client {
   void fetchSensorValues(String symbolicName, boolean onlyPollEnabled);
 
   void execute(String symbolicName, TinkerforgeValue command, DeviceOptions options);
+
+  List<MBaseDevice> getDevices();
 }

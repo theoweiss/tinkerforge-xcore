@@ -157,6 +157,7 @@ class Ecosystem {
 	contains MBrickd[] mbrickds opposite ecosystem
 	op MBrickd getBrickd(String host, int port)
 	op MBaseDevice getDevice(String uid, String subId)
+	op MBaseDevice[] getDevices()
 	op MSubDevice<?>[] getDevices4GenericId(String uid, String genericId)
 	op void disconnect()
 }
