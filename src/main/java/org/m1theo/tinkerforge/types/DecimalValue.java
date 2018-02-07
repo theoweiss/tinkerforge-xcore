@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 
 /**
  * The decimal value uses a BigDecimal internally and thus can be used for integers, longs and
- * floating point numbers alike (inspired by {@link org.openhab.core.library.types.DecimalType}).
+ * floating point numbers alike.
  *
  * @author Theo Weiss
  * @since 1.4.0

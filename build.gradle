@@ -3,6 +3,7 @@ plugins {
     // id "eclipse"
     id "java"
     id 'application'
+    id 'maven'
     id 'com.github.johnrengelman.shadow' version '1.2.3'
     id "com.github.hierynomus.license" version "0.14.0"
 }
@@ -38,9 +39,6 @@ dependencies {
     compile 'com.tinkerforge:tinkerforge:2.1.16'
     compile group: 'org.slf4j', name:'slf4j-api', version: '1.7.25'
     
-    // TODO remove this, it's only a workaround to easily run App.java from the fat jar
-    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
-
     compile 'org.eclipse.emf:org.eclipse.emf.ecore.xcore.lib:+'
     compile 'org.eclipse.emf:org.eclipse.emf.common:+'
     compile 'org.eclipse.emf:org.eclipse.emf.ecore:+'
@@ -57,5 +55,5 @@ run {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.2.1'
+    gradleVersion = '4.5'
 }

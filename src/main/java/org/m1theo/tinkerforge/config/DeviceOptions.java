@@ -10,6 +10,7 @@
 package org.m1theo.tinkerforge.config;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Map.Entry;
 
 /**
@@ -22,7 +23,11 @@ import java.util.Map.Entry;
  * @since 1.5.0
  */
 public class DeviceOptions {
-    HashMap<String, String> deviceOptions = new HashMap<String, String>();
+    Map<String, String> deviceOptions = new HashMap<String, String>();
+
+    public DeviceOptions(Map<String, String> options) {
+        this.deviceOptions = options;
+    }
 
     /**
      * Add an option to the DeviceOptions.
@@ -59,7 +64,7 @@ public class DeviceOptions {
      * 
      * @return
      */
-    public HashMap<String, String> getDeviceOptions() {
+    public Map<String, String> getDeviceOptions() {
         return deviceOptions;
     }
 

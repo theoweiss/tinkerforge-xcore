@@ -18,14 +18,14 @@ public class LoggingDataListener extends AbstractDataListener {
     String subId = null;
     if (device instanceof MSubDevice<?>) {
       subId = ((MSubDevice<?>) device).getSubId();
-      logger.trace("{} Notifier found MSubDevice sensor value for: {}", subId);
+      logger.trace("MSubDevice sensor value for: {}", subId);
     } else {
-      logger.trace("{} Notifier found mDevice sensor value for: {}", uid);
+      logger.trace("MDevice sensor value for: {}", uid);
     }
     if (subId == null) {
-      System.out.println(uid + ": " + newValue.toString());
+      logger.info("{}: {}", uid, newValue.toString());
     } else {
-      System.out.println(uid + "/" + subId + ": " + newValue.toString());
+      logger.info("{}/{}: {}", uid, subId, newValue.toString());
     }
   }
 
