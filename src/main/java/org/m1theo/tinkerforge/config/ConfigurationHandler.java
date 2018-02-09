@@ -9,90 +9,16 @@
  */
 package org.m1theo.tinkerforge.config;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.m1theo.tinkerforge.emf.model.AccelerometerSubIds;
-import org.m1theo.tinkerforge.emf.model.AmbientLightV2Configuration;
-import org.m1theo.tinkerforge.emf.model.BarometerSubIDs;
-import org.m1theo.tinkerforge.emf.model.BrickletAccelerometerConfiguration;
-import org.m1theo.tinkerforge.emf.model.BrickletColorConfiguration;
-import org.m1theo.tinkerforge.emf.model.BrickletIndustrialDualAnalogInConfiguration;
-import org.m1theo.tinkerforge.emf.model.BrickletMultiTouchConfiguration;
-import org.m1theo.tinkerforge.emf.model.BrickletOLEDConfiguration;
-import org.m1theo.tinkerforge.emf.model.BrickletRemoteSwitchConfiguration;
-import org.m1theo.tinkerforge.emf.model.ButtonConfiguration;
-import org.m1theo.tinkerforge.emf.model.ColorBrickletSubIds;
-import org.m1theo.tinkerforge.emf.model.DimmableConfiguration;
-import org.m1theo.tinkerforge.emf.model.DualButtonButtonSubIds;
-import org.m1theo.tinkerforge.emf.model.DualButtonLEDConfiguration;
-import org.m1theo.tinkerforge.emf.model.DualButtonLedSubIds;
-import org.m1theo.tinkerforge.emf.model.DualRelaySubIds;
-import org.m1theo.tinkerforge.emf.model.Ecosystem;
-import org.m1theo.tinkerforge.emf.model.HumidityV2Configuration;
-import org.m1theo.tinkerforge.emf.model.HumidityV2SubIds;
-import org.m1theo.tinkerforge.emf.model.IO16SubIds;
-import org.m1theo.tinkerforge.emf.model.IO4SubIds;
-import org.m1theo.tinkerforge.emf.model.IndustrialDigitalInSubIDs;
-import org.m1theo.tinkerforge.emf.model.IndustrialDigitalOutSubIDs;
-import org.m1theo.tinkerforge.emf.model.IndustrialDual020mASubIds;
-import org.m1theo.tinkerforge.emf.model.IndustrialDualAnalogInSubIds;
-import org.m1theo.tinkerforge.emf.model.IndustrialQuadRelayIDs;
-import org.m1theo.tinkerforge.emf.model.JoystickSubIds;
-import org.m1theo.tinkerforge.emf.model.LCDButtonSubIds;
-import org.m1theo.tinkerforge.emf.model.LEDGroupConfiguration;
-import org.m1theo.tinkerforge.emf.model.LEDStripConfiguration;
-import org.m1theo.tinkerforge.emf.model.LaserRangeFinderConfiguration;
-import org.m1theo.tinkerforge.emf.model.LaserRangeFinderSubIds;
-import org.m1theo.tinkerforge.emf.model.LoadCellConfiguration;
-import org.m1theo.tinkerforge.emf.model.LoadCellSubIds;
-import org.m1theo.tinkerforge.emf.model.ModelFactory;
-import org.m1theo.tinkerforge.emf.model.ModelPackage;
-import org.m1theo.tinkerforge.emf.model.MultiTouchDeviceConfiguration;
-import org.m1theo.tinkerforge.emf.model.MultiTouchSubIds;
-import org.m1theo.tinkerforge.emf.model.NoSubIds;
-import org.m1theo.tinkerforge.emf.model.OHConfig;
-import org.m1theo.tinkerforge.emf.model.OHTFDevice;
-import org.m1theo.tinkerforge.emf.model.OHTFSubDeviceAdminDevice;
-import org.m1theo.tinkerforge.emf.model.PTCSubIds;
-import org.m1theo.tinkerforge.emf.model.RemoteSwitchAConfiguration;
-import org.m1theo.tinkerforge.emf.model.RemoteSwitchBConfiguration;
-import org.m1theo.tinkerforge.emf.model.RemoteSwitchCConfiguration;
-import org.m1theo.tinkerforge.emf.model.RotaryEncoderSubIds;
-import org.m1theo.tinkerforge.emf.model.ServoSubIDs;
-import org.m1theo.tinkerforge.emf.model.TFAnalogInConfiguration;
-import org.m1theo.tinkerforge.emf.model.TFAnalogInV2Configuration;
-import org.m1theo.tinkerforge.emf.model.TFBaseConfiguration;
-import org.m1theo.tinkerforge.emf.model.TFBrickDCConfiguration;
-import org.m1theo.tinkerforge.emf.model.TFDistanceUSBrickletConfiguration;
-import org.m1theo.tinkerforge.emf.model.TFIOActorConfiguration;
-import org.m1theo.tinkerforge.emf.model.TFIOSensorConfiguration;
-import org.m1theo.tinkerforge.emf.model.TFIndustrialDual020mAConfiguration;
-import org.m1theo.tinkerforge.emf.model.TFInterruptListenerConfiguration;
-import org.m1theo.tinkerforge.emf.model.TFMoistureBrickletConfiguration;
-import org.m1theo.tinkerforge.emf.model.TFObjectTemperatureConfiguration;
-import org.m1theo.tinkerforge.emf.model.TFPTCBrickletConfiguration;
-import org.m1theo.tinkerforge.emf.model.TFServoConfiguration;
-import org.m1theo.tinkerforge.emf.model.TFTemperatureConfiguration;
-import org.m1theo.tinkerforge.emf.model.TFThermocoupleConfiguration;
-import org.m1theo.tinkerforge.emf.model.TFVoltageCurrentConfiguration;
-import org.m1theo.tinkerforge.emf.model.TemperatureIRSubIds;
-import org.m1theo.tinkerforge.emf.model.VoltageCurrentSubIds;
+import org.eclipse.emf.ecore.*;
+import org.m1theo.tinkerforge.emf.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.math.BigDecimal;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ConfigurationHandler {
 
@@ -243,7 +169,7 @@ public class ConfigurationHandler {
       // the config-key enumeration contains additional keys that
       // we
       // don't want to process here ...
-      if ("service.pid".equals(key)) {
+      if ("service.pid".equals(key) || "hosts".equals(key)) {
         continue;
       }
       Matcher matcher = UID_PATTERN.matcher(key);
@@ -259,10 +185,12 @@ public class ConfigurationHandler {
         String deviceType = (String) config.get(ohId + "." + ConfigKey.type.name());
         configMap.put(ConfigKey.type.name(), deviceType);
         if (deviceType == null) {
+          logger.error("deviceType is missing for id {}", ohId);
           throw new ConfigurationException(ohId + " type is missing");
         }
         checkTfType(ohId, deviceType);
         if (configContainer.containsKey(ohId)) {
+          logger.error("duplicate entry: {}", ohId);
           throw new ConfigurationException(ohId + " duplicate entry");
         }
         // second iteration to get the remaining, not common,
@@ -339,8 +267,8 @@ public class ConfigurationHandler {
         || deviceType.equals(TypeKey.laser_range_finder_velocity.name())
         || deviceType.equals(TypeKey.bricklet_uvlight.name()) 
         || deviceType.equals(TypeKey.bricklet_co2.name())
-        || deviceType.equals(TypeKey.humidityV2_humidity.name())
-        || deviceType.equals(TypeKey.humidityV2_temperature.name())) {
+        || deviceType.equals(TypeKey.humidityV2_temperature.name())
+        || deviceType.equals(TypeKey.humidityV2_humidity.name())) {
       logger.debug("setting base config");
       TFBaseConfiguration tfBaseConfiguration = modelFactory.createTFBaseConfiguration();
       if (deviceType.equals(TypeKey.bricklet_barometer.name())) {
@@ -406,6 +334,18 @@ public class ConfigurationHandler {
         OHTFDevice<TFBaseConfiguration, LaserRangeFinderSubIds> ohtfDevice = modelFactory.createOHTFDevice();
         ohtfDevice.getSubDeviceIds().addAll(Arrays.asList(LaserRangeFinderSubIds.values()));
         ohtfDevice.setTfConfig(tfBaseConfiguration);
+        fillupConfig(ohtfDevice, deviceConfig);
+      } else if (deviceType.equals(TypeKey.humidityV2_humidity.name())){
+        OHTFDevice<TFBaseConfiguration, HumidityV2SubIds> ohtfDevice = modelFactory.createOHTFDevice();
+        ohtfDevice.getSubDeviceIds().addAll(Arrays.asList(HumidityV2SubIds.values()));
+        ohtfDevice.setTfConfig(tfBaseConfiguration);
+        fillupConfig(ohtfDevice, deviceConfig);
+      } else if (deviceType.equals(TypeKey.humidityV2_temperature.name())){
+        logger.debug("setting bricklet humidityV2 temperature config");
+        OHTFDevice<TFBaseConfiguration, HumidityV2SubIds> ohtfDevice = modelFactory.createOHTFDevice();
+        ohtfDevice.getSubDeviceIds().addAll(Arrays.asList(HumidityV2SubIds.values()));
+        ohtfDevice.setTfConfig(tfBaseConfiguration);
+        logger.debug("found humv2 temperature");
         fillupConfig(ohtfDevice, deviceConfig);
       } else {
         OHTFDevice<TFBaseConfiguration, NoSubIds> ohtfDevice = modelFactory.createOHTFDevice();
@@ -763,16 +703,19 @@ public class ConfigurationHandler {
     String subid = deviceConfig.get(ConfigKey.subid.name());
     if (subid != null) {
       if (!ohtfDevice.isValidSubId(subid)) {
-        throw new ConfigurationException(subid + " is an invalid subId: openhab.cfg has to be fixed!");
+        logger.error("invalid subId {} {}", subid, ohtfDevice);
+        throw new ConfigurationException(subid + " is an invalid subId: cfg has to be fixed!");
       }
       logger.trace("fillupConfig ohtfDevice subid {}", subid);
       ohtfDevice.setSubid(subid);
     }
     if (ohConfig.getConfigByTFId(uid, subid) != null) {
+      logger.error("duplicate device config {} {}", uid, subid);
       throw new ConfigurationException(uid + "/" + subid + " duplicate device config ");
     }
     String symbolicName = deviceConfig.get(ConfigKeyAdmin.ohId.name());
     if (ohConfig.getConfigByOHId(symbolicName) != null) {
+      logger.error("duplicate device config for symbolic name {}", symbolicName);
       throw new ConfigurationException(symbolicName + "duplicate device config for symbolic name ");
     }
     ohtfDevice.setOhid(symbolicName);
@@ -801,10 +744,13 @@ public class ConfigurationHandler {
             logger.debug("configuring feature: {} for uid {} subid {}", feature.getName(), uid, subid);
             String className = feature.getEType().getInstanceClassName();
             if (className.equals("int") || className.equals("java.lang.Integer")) {
+              logger.debug("found Integer value");
               tfConfig.eSet(feature, Integer.parseInt(deviceConfig.get(property)));
             } else if (className.equals("short") || className.equals("java.lang.Short")) {
+              logger.debug("found short value");
               tfConfig.eSet(feature, Short.parseShort(deviceConfig.get(property)));
             } else if (className.equals("long") || className.equals("java.lang.Long")) {
+              logger.debug("found long value");
               tfConfig.eSet(feature, Long.parseLong(deviceConfig.get(property)));
             } else if (className.equals("boolean") || className.equals("java.lang.Boolean")) {
               logger.debug("found boolean value");
@@ -816,6 +762,7 @@ public class ConfigurationHandler {
               logger.debug("found BigDecimal value");
               tfConfig.eSet(feature, new BigDecimal(deviceConfig.get(property)));
             } else {
+              logger.error("unsupported configuration type needed:  {}", className);
               throw new ConfigurationException(
                   feature.getName() + " unsupported configuration type needed: " + className);
             }
@@ -854,6 +801,7 @@ public class ConfigurationHandler {
       }
     }
     if (!deviceFound) {
+      logger.error("unknown device type {}", deviceType);
       throw new ConfigurationException(ohId + " unknown device type: " + deviceType);
     }
   }

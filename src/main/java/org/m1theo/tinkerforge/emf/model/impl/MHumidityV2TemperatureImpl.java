@@ -11,22 +11,16 @@
  */
 package org.m1theo.tinkerforge.emf.model.impl;
 
-import java.lang.reflect.InvocationTargetException;
-
-import java.math.BigDecimal;
-import java.util.concurrent.atomic.AtomicBoolean;
-
+import com.tinkerforge.BrickletHumidityV2;
+import com.tinkerforge.NotConnectedException;
+import com.tinkerforge.TimeoutException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.m1theo.tinkerforge.emf.model.CallbackListener;
 import org.m1theo.tinkerforge.emf.model.MBrickletHumidityV2;
@@ -43,9 +37,9 @@ import org.m1theo.tinkerforge.types.DecimalValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.tinkerforge.BrickletHumidityV2;
-import com.tinkerforge.NotConnectedException;
-import com.tinkerforge.TimeoutException;
+import java.lang.reflect.InvocationTargetException;
+import java.math.BigDecimal;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * <!-- begin-user-doc -->

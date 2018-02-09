@@ -2,9 +2,7 @@ package org.m1theo.tinkerforge.emf.client.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.util.EContentAdapter;
-import org.m1theo.tinkerforge.config.ConfigurationHandler;
-import org.m1theo.tinkerforge.config.DeviceOptions;
-import org.m1theo.tinkerforge.config.Host;
+import org.m1theo.tinkerforge.config.*;
 import org.m1theo.tinkerforge.emf.client.Client;
 import org.m1theo.tinkerforge.emf.client.DataListener;
 import org.m1theo.tinkerforge.emf.client.DeviceAdminListener;
@@ -27,11 +25,28 @@ public class ClientImpl implements Client {
     ecosystem = modelFactory.createEcosystem();
   }
 
-  public ClientImpl(Map<String, ?> config, DataListener dataListener) {
+  public ClientImpl(Map<String, ?> config, DataListener dataListener) throws ConfigurationException {
     this();
-    ConfigurationHandler configurationHandler = new ConfigurationHandler();
-    ohConfig = configurationHandler.createConfig(config);
-    listen2Model(ecosystem, new DeviceAdminListenerImpl(ecosystem, ohConfig), dataListener);
+    try {
+      logger.debug("-------- clientImpl {}", config);
+      ConfigurationHandler configurationHandler = new ConfigurationHandler();
+      logger.debug("======== -------- clientImpl");
+
+      ohConfig = configurationHandler.createConfig(config);
+      logger.debug("/////// -------- clientImpl");
+      logger.debug("ohConfig {}", ohConfig);
+      listen2Model(ecosystem, new DeviceAdminListenerImpl(ecosystem, ohConfig), dataListener);
+//      Object cfgHostsLine = config.get("hosts");
+//      if (cfgHostsLine == null) {
+//        logger.debug("no hosts line found");
+//      } else if (cfgHostsLine instanceof String) {
+//        List<Host> hosts = Utils.parseCfgHosts((String) cfgHostsLine);
+//        connectBrickds(hosts);
+//      }
+      logger.debug("ffffffffff -------- clientImpl");
+    } catch (RuntimeException e){
+      logger.error("ppppppppp got exception",e);
+    }
   }
 
   private void listen2Model(Ecosystem tinkerforgeEcosystem, DeviceAdminListener deviceAdminListener, DataListener dataListener) {
@@ -49,6 +64,7 @@ public class ClientImpl implements Client {
         } else if (notification.getEventType() == Notification.REMOVE_MANY) {
           logger.debug("remove many called");
         } else {
+          logger.debug("processValue called {}", notification);
           dataListener.processValue(notification);
         }
       }
@@ -76,6 +92,7 @@ public class ClientImpl implements Client {
 
   @Override
   public void connectBrickds(List<Host> hosts) {
+    logger.debug("connect brickds");
     for (Host host : hosts){
       connectBrickd(host.getHost(), host.getPort(), host.getAuthKey());
     }

@@ -9,12 +9,10 @@
  */
 package org.m1theo.tinkerforge.emf.model.impl;
 
-import java.lang.reflect.InvocationTargetException;
-import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
-
+import com.tinkerforge.BrickletThermocouple;
+import com.tinkerforge.IPConnection;
+import com.tinkerforge.NotConnectedException;
+import com.tinkerforge.TimeoutException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -23,7 +21,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.m1theo.tinkerforge.config.ConfigurationException;
 import org.m1theo.tinkerforge.emf.model.CallbackListener;
 import org.m1theo.tinkerforge.emf.model.MBrickd;
 import org.m1theo.tinkerforge.emf.model.MBrickletThermocouple;
@@ -38,10 +35,11 @@ import org.m1theo.tinkerforge.types.DecimalValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.tinkerforge.BrickletThermocouple;
-import com.tinkerforge.IPConnection;
-import com.tinkerforge.NotConnectedException;
-import com.tinkerforge.TimeoutException;
+import java.lang.reflect.InvocationTargetException;
+import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * <!-- begin-user-doc -->
@@ -830,7 +828,7 @@ public class MBrickletThermocoupleImpl extends MinimalEObjectImpl.Container impl
                 Short averagingConfig = tfConfig.getAveraging();
                 if (!possibleAveragingValues.contains(averagingConfig)) {
                     logger.error("invalid averaging configuration {}", averagingConfig);
-                    throw new ConfigurationException("invalid averaging configuration " + averagingConfig);
+                    //throw new ConfigurationException("invalid averaging configuration " + averagingConfig);
                 }
                 averaging = averagingConfig;
             }
@@ -838,7 +836,7 @@ public class MBrickletThermocoupleImpl extends MinimalEObjectImpl.Container impl
                 String thermocoupleType = tfConfig.getThermocoupleType();
                 if (!possibleTypeValues.contains(thermocoupleType)) {
                     logger.error("invalid thermocoupleType {}", thermocoupleType);
-                    throw new ConfigurationException("invalid thermocoupleType" + thermocoupleType);
+                    //throw new ConfigurationException("invalid thermocoupleType" + thermocoupleType);
                 }
                 thermocoupleTypeId = getTypeId(thermocoupleType);
             }
@@ -846,7 +844,7 @@ public class MBrickletThermocoupleImpl extends MinimalEObjectImpl.Container impl
                 String filterConfig = tfConfig.getFilter();
                 if (!possibleFilterValues.contains(filterConfig)) {
                     logger.error("invalid filter configuration {}", filterConfig);
-                    throw new ConfigurationException("invalid filter configuration" + filterConfig);
+                    //throw new ConfigurationException("invalid filter configuration" + filterConfig);
                 }
                 filterId = filterConfig.equals("50") ? BrickletThermocouple.FILTER_OPTION_50HZ
                         : BrickletThermocouple.FILTER_OPTION_60HZ;
@@ -895,7 +893,7 @@ public class MBrickletThermocoupleImpl extends MinimalEObjectImpl.Container impl
         }
     }
 
-    private short getTypeId(String type) {
+    private Short getTypeId(String type) {
         switch (type) {
             case "B":
                 return BrickletThermocouple.TYPE_B;
@@ -918,7 +916,7 @@ public class MBrickletThermocoupleImpl extends MinimalEObjectImpl.Container impl
             case "G32":
                 return BrickletThermocouple.TYPE_G32;
             default:
-                throw new ConfigurationException("unknown type");
+                return null;
         }
     }
 

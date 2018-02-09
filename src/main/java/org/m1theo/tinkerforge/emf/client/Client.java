@@ -1,5 +1,6 @@
 package org.m1theo.tinkerforge.emf.client;
 
+import org.m1theo.tinkerforge.config.ConfigurationException;
 import org.m1theo.tinkerforge.config.DeviceOptions;
 import org.m1theo.tinkerforge.config.Host;
 import org.m1theo.tinkerforge.emf.client.impl.ClientImpl;
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface Client {
-  public static Client createInstance(Map<String, ?> config, DataListener dataListener){
+   static Client createInstance(Map<String, ?> config, DataListener dataListener) throws ConfigurationException {
     return new ClientImpl(config, dataListener);
   }
   

@@ -23,4 +23,13 @@ public class Host {
   public String getAuthKey() {
     return authKey;
   }
+
+  @Override
+  public String toString() {
+    return "Host{" +
+        "host='" + host + '\'' +
+        ", port=" + port +
+        ", authKey='" + authKey + '\'' +
+        '}';
+  }
 }

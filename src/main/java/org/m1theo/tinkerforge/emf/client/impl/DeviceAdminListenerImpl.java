@@ -124,6 +124,8 @@ public class DeviceAdminListenerImpl implements DeviceAdminListener {
         device.enable();
         logger.debug("{} adding/enabling device: {}", logId);
       }
+    } else {
+      logger.debug("device already enabled {}", device.getUid());
     }
   }
 

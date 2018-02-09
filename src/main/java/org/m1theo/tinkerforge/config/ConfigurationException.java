@@ -9,7 +9,7 @@
  */
 package org.m1theo.tinkerforge.config;
 
-public class ConfigurationException extends RuntimeException {
+public class ConfigurationException extends Exception {
 
     /**
      * 

@@ -12,7 +12,6 @@
 package org.m1theo.tinkerforge.emf.model.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;

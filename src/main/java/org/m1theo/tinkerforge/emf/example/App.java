@@ -9,13 +9,6 @@
  */
 package org.m1theo.tinkerforge.emf.example;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.concurrent.atomic.AtomicBoolean;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -25,47 +18,17 @@ import org.m1theo.tinkerforge.config.ConfigurationException;
 import org.m1theo.tinkerforge.config.ConfigurationHandler;
 import org.m1theo.tinkerforge.config.DeviceOptions;
 import org.m1theo.tinkerforge.emf.client.Constants;
-import org.m1theo.tinkerforge.emf.model.ColorActor;
-import org.m1theo.tinkerforge.emf.model.DigitalActor;
-import org.m1theo.tinkerforge.emf.model.DimmableActor;
-import org.m1theo.tinkerforge.emf.model.Ecosystem;
-import org.m1theo.tinkerforge.emf.model.GenericDevice;
-import org.m1theo.tinkerforge.emf.model.IO4Device;
-import org.m1theo.tinkerforge.emf.model.IODevice;
-import org.m1theo.tinkerforge.emf.model.MBaseDevice;
-import org.m1theo.tinkerforge.emf.model.MBrickd;
-import org.m1theo.tinkerforge.emf.model.MDevice;
-import org.m1theo.tinkerforge.emf.model.MSensor;
-import org.m1theo.tinkerforge.emf.model.MSubDevice;
-import org.m1theo.tinkerforge.emf.model.MSubDeviceHolder;
-import org.m1theo.tinkerforge.emf.model.MSwitchActor;
-import org.m1theo.tinkerforge.emf.model.MTFConfigConsumer;
-import org.m1theo.tinkerforge.emf.model.MTextActor;
-import org.m1theo.tinkerforge.emf.model.ModelFactory;
-import org.m1theo.tinkerforge.emf.model.ModelPackage;
-import org.m1theo.tinkerforge.emf.model.MoveActor;
-import org.m1theo.tinkerforge.emf.model.NumberActor;
-import org.m1theo.tinkerforge.emf.model.OHConfig;
-import org.m1theo.tinkerforge.emf.model.OHTFDevice;
-import org.m1theo.tinkerforge.emf.model.PercentTypeActor;
-import org.m1theo.tinkerforge.emf.model.ProgrammableColorActor;
-import org.m1theo.tinkerforge.emf.model.ProgrammableSwitchActor;
-import org.m1theo.tinkerforge.emf.model.SetPointActor;
-import org.m1theo.tinkerforge.emf.model.SimpleColorActor;
-import org.m1theo.tinkerforge.emf.model.SwitchSensor;
-import org.m1theo.tinkerforge.emf.model.TFConfig;
-import org.m1theo.tinkerforge.types.DecimalValue;
-import org.m1theo.tinkerforge.types.HSBValue;
-import org.m1theo.tinkerforge.types.HighLowValue;
-import org.m1theo.tinkerforge.types.IncreaseDecreaseValue;
-import org.m1theo.tinkerforge.types.OnOffValue;
-import org.m1theo.tinkerforge.types.PercentValue;
-import org.m1theo.tinkerforge.types.StopMoveValue;
-import org.m1theo.tinkerforge.types.StringValue;
-import org.m1theo.tinkerforge.types.TinkerforgeValue;
-import org.m1theo.tinkerforge.types.UpDownValue;
+import org.m1theo.tinkerforge.emf.model.*;
+import org.m1theo.tinkerforge.types.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class App {
   private static Logger logger = LoggerFactory.getLogger(App.class);
@@ -74,7 +37,7 @@ public class App {
   private static AtomicBoolean isConnected = new AtomicBoolean(false);
   private static OHConfig ohConfig;
 
-  public static void main(String[] args) throws FileNotFoundException, InterruptedException {
+  public static void main(String[] args) throws FileNotFoundException, InterruptedException, ConfigurationException {
     System.out.println(args[0]);
     Scanner scanner = new Scanner(new FileReader(args[0]));
 

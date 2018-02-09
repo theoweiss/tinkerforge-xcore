@@ -11,12 +11,10 @@
  */
 package org.m1theo.tinkerforge.emf.model.impl;
 
-import java.lang.reflect.InvocationTargetException;
-import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
-
+import com.tinkerforge.BrickletAmbientLightV2;
+import com.tinkerforge.IPConnection;
+import com.tinkerforge.NotConnectedException;
+import com.tinkerforge.TimeoutException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -25,7 +23,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.m1theo.tinkerforge.config.ConfigurationException;
 import org.m1theo.tinkerforge.emf.model.AmbientLightV2Configuration;
 import org.m1theo.tinkerforge.emf.model.CallbackListener;
 import org.m1theo.tinkerforge.emf.model.MBrickd;
@@ -40,10 +37,11 @@ import org.m1theo.tinkerforge.types.DecimalValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.tinkerforge.BrickletAmbientLightV2;
-import com.tinkerforge.IPConnection;
-import com.tinkerforge.NotConnectedException;
-import com.tinkerforge.TimeoutException;
+import java.lang.reflect.InvocationTargetException;
+import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * <!-- begin-user-doc -->
@@ -911,7 +909,7 @@ public class MBrickletAmbientLightV2Impl extends MinimalEObjectImpl.Container im
                 logger.debug("illuminanceRange {}", illuminanceRange);
                 if (!possibleIlluminanceValues.contains(illuminanceRange)) {
                     logger.error("invalid illuminanceRange value: {}", illuminanceRange);
-                    throw new ConfigurationException("invalid illuminanceRange value: " + illuminanceRange);
+                    //throw new ConfigurationException("invalid illuminanceRange value: " + illuminanceRange);
                 }
                 setIlluminanceRange(illuminanceRange);
             }
@@ -920,7 +918,7 @@ public class MBrickletAmbientLightV2Impl extends MinimalEObjectImpl.Container im
                 logger.debug("integrationTime {}", integrationTime);
                 if (!possibleIntegrationTimeValues.contains(integrationTime)) {
                     logger.error("invalid integrationTime value: {}", integrationTime);
-                    throw new ConfigurationException("invalid integrationTime value: " + integrationTime);
+                    //throw new ConfigurationException("invalid integrationTime value: " + integrationTime);
                 }
                 setIntegrationTime(integrationTime);
             }
