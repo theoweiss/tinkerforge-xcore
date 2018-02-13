@@ -893,8 +893,8 @@ public class MBrickletAmbientLightV2Impl extends MinimalEObjectImpl.Container im
      */
     @Override
     public void enable() {
-        List<Integer> possibleIlluminanceValues = Arrays.asList(new Integer[] { 0, 1, 2, 3, 4, 5, 6 });
-        List<Integer> possibleIntegrationTimeValues = Arrays.asList(new Integer[] { 0, 1, 2, 3, 4, 5, 6, 7 });
+        List<Short> possibleIlluminanceValues = Arrays.asList(new Short[] { 0, 1, 2, 3, 4, 5, 6 });
+        List<Short> possibleIntegrationTimeValues = Arrays.asList(new Short[] { 0, 1, 2, 3, 4, 5, 6, 7 });
         if (tfConfig != null) {
             if (tfConfig.eIsSet(tfConfig.eClass().getEStructuralFeature("threshold"))) {
                 logger.debug("threshold {}", tfConfig.getThreshold());
@@ -909,18 +909,18 @@ public class MBrickletAmbientLightV2Impl extends MinimalEObjectImpl.Container im
                 logger.debug("illuminanceRange {}", illuminanceRange);
                 if (!possibleIlluminanceValues.contains(illuminanceRange)) {
                     logger.error("invalid illuminanceRange value: {}", illuminanceRange);
-                    //throw new ConfigurationException("invalid illuminanceRange value: " + illuminanceRange);
+                } else {
+                		setIlluminanceRange(illuminanceRange);
                 }
-                setIlluminanceRange(illuminanceRange);
             }
             if (tfConfig.eIsSet(tfConfig.eClass().getEStructuralFeature("integrationTime"))) {
                 short integrationTime = tfConfig.getIntegrationTime();
                 logger.debug("integrationTime {}", integrationTime);
                 if (!possibleIntegrationTimeValues.contains(integrationTime)) {
                     logger.error("invalid integrationTime value: {}", integrationTime);
-                    //throw new ConfigurationException("invalid integrationTime value: " + integrationTime);
+                } else {
+                		setIntegrationTime(integrationTime);
                 }
-                setIntegrationTime(integrationTime);
             }
         }
         tinkerforgeDevice = new BrickletAmbientLightV2(getUid(), getIpConnection());
