@@ -25,7 +25,10 @@ import java.util.Map.Entry;
 public class DeviceOptions {
     Map<String, String> deviceOptions = new HashMap<String, String>();
 
-    public DeviceOptions(Map<String, String> options) {
+    public DeviceOptions() {
+	}
+
+	public DeviceOptions(Map<String, String> options) {
         this.deviceOptions = options;
     }
 
